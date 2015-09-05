@@ -117,6 +117,7 @@ $scope.reloadPage = function() {
   </div>
 </ion-header-bar>
 <ion-content>
+<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
 <ion-item ng-repeat="item in items" 
 item="item"
 href="{{ item.product_id }}.html?device_id={{ item.device_id }}&access_token={{ access_token }}&alias={{ item.alias }}" class="item-remove-animate">
