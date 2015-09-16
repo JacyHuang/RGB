@@ -126,7 +126,7 @@
         }
         // 消息到达
         function onMessageArrived(message) {
-            console.log(message.topic + ': ' +  message.payloadString);
+            console.log("消息到达：" + ': ' +  message.payloadString);
         }
 
         // 串口数据发送部分
@@ -135,8 +135,7 @@
         function send2uart() {
             if ( inputMessage.value.length == 0 ) return;
             var topic = device_id+'/in/write';
-            var commond = '{"11":"' + inputMessage.value + '"}';
-            client.publish(topic, commond);
+            client.publish(topic, inputMessage.value);
             console.log(inputMessage.value);
             inputMessage.value = '';
         }
