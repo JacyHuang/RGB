@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
     <title>MiCOKit08</title>
-    <link href="http://code.ionicframework.com/1.0.0-beta.13/css/ionic.css" rel="stylesheet">
+    <link href="//code.ionicframework.com/1.0.0-beta.13/css/ionic.css" rel="stylesheet">
     <style>
         #debug {
             margin-top:44px;
@@ -124,19 +124,10 @@
             if (responseObject.errorCode !== 0)
                 console.log("onConnectionLost:"+responseObject.errorMessage);
         }
-<<<<<<< HEAD
         // 消息到达
         function onMessageArrived(message) {
             console.log(message.topic + ': ' +  message.payloadString);
         }
-=======
-        // 娑堟伅鍒拌揪
-
-          function onMessageArrived(message) {
-      // console.log(message.topic + ': ' +  message.payloadString);
-      console.log('娑堟伅鍒拌揪: ' +  message.payloadString);
-    }
->>>>>>> parent of ca67d5e... 44
 
         // 串口数据发送部分
         var inputMessage = document.getElementById('message');
