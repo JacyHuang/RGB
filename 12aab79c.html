@@ -155,6 +155,10 @@
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":false}';
             client.publish(topic, commond);
+             <div class="button-bar">
+     <a class="button" style="background:white; color:black" id="led_on">ON</a>
+     <a class="button" style="background:black; color:white" id="led_off">OFF</a>
+ </div>
         }
         // document.querySelector('#led_off').addEventListener('touchstart', led_off);
         document.querySelector('#led_off').addEventListener('click', led_off);
