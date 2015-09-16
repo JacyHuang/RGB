@@ -4,11 +4,12 @@
     <meta charset="gb2312">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
     <title>HomeLink</title>
-    <link href="http://code.ionicframework.com/1.0.0-beta.13/css/ionic.css" rel="stylesheet">
+    <!--link href="http://code.ionicframework.com/1.0.0-beta.13/css/ionic.css" rel="stylesheet"-->
     	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<link href="docs/css/bootstrap.min.css" rel="stylesheet">
     <link href="docs/css/highlight.css" rel="stylesheet">
     <link href="css/bootstrap3/bootstrap-switch.css" rel="stylesheet">
+    <link href="css/docs.min.css" rel="stylesheet">
     <link href="docs/css/main.css" rel="stylesheet">
     <style>
         #debug {
@@ -31,7 +32,6 @@
             word-wrap: break-word;
             margin-bottom: 2px;
         }
-        .buttondemo{width:760px; margin:20px auto 0 auto; height:70px;}
         .button {
 				display: inline-block;
 				outline: none;
@@ -176,10 +176,10 @@
      </button>
  </div>
 
- <div class="buttondemo">
-     <a href="#" class="button green" id="led_green">绿色</a>
-     <a href="#" class="button blue" id="led_blue">蓝色</a>
-     <a href="#" class="button orange" id="led_red">橙色</a>
+ <div class="button-bar">
+     <a class="button" style="background:red; color:white" id="led_red">Red</a>
+     <a class="button" style="background:green; color:white" id="led_green">Green</a>
+     <a class="button" style="background:blue; color:white" id="led_blue">Blue</a>
  </div>
  
  				<!-- 测试CSS -->
@@ -191,7 +191,7 @@
  				<div class="container">
 	        <div class="row">
 	          <div class="col-sm-6 col-lg-4">
-	            <p align="right">
+	            <p>
 	              <input id="switch-state" type="checkbox" checked>
 	            </p>
 	          </div>
@@ -209,8 +209,7 @@
     <script src="js/bootstrap-switch.js"></script>
     <script src="docs/js/main.js"></script>
 	      <!-- 测试CSS -->
-
- </div>
+</div>
 
 <script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
 <script>
