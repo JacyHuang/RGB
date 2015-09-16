@@ -3,7 +3,7 @@
 <head>
     <meta charset="gb2312">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
-    <title>HomeLink</title>
+    <title id="device_id">HomeLink</title>
     	<link rel="stylesheet" type="text/css" href="css/default.css">
 
     <link href="docs/css/highlight.css" rel="stylesheet">
@@ -159,8 +159,7 @@
 
     </style>
 </head>
-<body>
-      <a class="title" id="device_id"></a>  	
+<body>	
 		<div class="col-sm-6 col-lg-4" align="right">
 				<input id="switch-state" type="checkbox" checked>
 		</div>
@@ -181,6 +180,10 @@
      <a href="#" class="button blue" id="led_blue">蓝色</a> 
      <a href="#" class="button green" id="led_green">绿色</a> 
      <a href="#" class="button orange" id="led_red">橙色</a> 
+ </div>
+ <div class="button-bar">
+     <a class="button" style="background:white; color:black" id="led_on">On</a>
+     <a class="button" style="background:black; color:white" id="led_off">Off</a>
  </div>
 </div>
 <script src="docs/js/jquery.min.js"></script>
@@ -275,7 +278,21 @@
         // document.querySelector('#send2uart').addEventListener('touchstart', send2uart);
         document.querySelector('#send2uart').addEventListener('click', send2uart);
 
+        function led_on() {
+            var topic = device_id+'/in/write';
+            var commond = '{"rgbled_switch":true}';
+            client.publish(topic, commond);
+        }
+        // document.querySelector('#led_on').addEventListener('touchstart', led_on);
+        document.querySelector('#led_on').addEventListener('click', led_on);
 
+        function led_off() {
+            var topic = device_id+'/in/write';
+            var commond = '{"rgbled_switch":false}';
+            client.publish(topic, commond);
+        }
+        // document.querySelector('#led_off').addEventListener('touchstart', led_off);
+        document.querySelector('#led_off').addEventListener('click', led_off);
 
         function led_red() {
             var topic = device_id+'/in/write';
