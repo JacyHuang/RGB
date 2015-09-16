@@ -124,10 +124,19 @@
             if (responseObject.errorCode !== 0)
                 console.log("onConnectionLost:"+responseObject.errorMessage);
         }
+<<<<<<< HEAD
         // 消息到达
         function onMessageArrived(message) {
             console.log(message.topic + ': ' +  message.payloadString);
         }
+=======
+        // 娑堟伅鍒拌揪
+
+          function onMessageArrived(message) {
+      // console.log(message.topic + ': ' +  message.payloadString);
+      console.log('娑堟伅鍒拌揪: ' +  message.payloadString);
+    }
+>>>>>>> parent of ca67d5e... 44
 
         // 串口数据发送部分
         var inputMessage = document.getElementById('message');
