@@ -160,7 +160,7 @@
     </style>
 </head>
 <body>	
-	<h3 align="center">Ò»Â¥¿ØÖÆµÆ</h3>
+	<h3 align="center">ÔÆµÆ¿ØÖÆ</h3>
 		<div class="col-sm-6 col-lg-4" align="right">
 				<input id="switch-state" type="checkbox" checked>
 		</div>
@@ -287,6 +287,17 @@
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
         document.querySelector('#led_on').addEventListener('click', led_on);
 
+
+function getcheck(){
+var x=document.getElementsByName("checkbox");
+
+for (var i=0;i<x.length;i++)
+{
+alter(x[i].value +" is checked!");
+}
+client.publish(topic, x);
+}
+        
         function led_off() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":false}';
