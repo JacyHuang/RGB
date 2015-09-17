@@ -199,6 +199,9 @@
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
         return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
     }
+    
+    var prechecksw=document.getElementById("switch-state");
+    var checksw;
     // 得到设备ID
     var device_id = getParameterByName('device_id');
     // 如果设备ID不为空，则执行连接MQTT的操作
@@ -279,14 +282,18 @@
         // document.querySelector('#send2uart').addEventListener('touchstart', send2uart);
         document.querySelector('#send2uart').addEventListener('click', send2uart);
 
-        function led_on2() {
-            var check=document.getElementById("switch-state");
+ 
+            checksw=document.getElementById("switch-state");
+            if(checksw != prechecksw)
+            {
+            	prechecksw = checksw;
             var topic = device_id+'/in/write';
-          var commond = '{"rgbled_switch":' + check.checked + '}';
+         		 var commond = '{"rgbled_switch":' + checksw.checked + '}';
             client.publish(topic, commond);
-        }
+            }
+        
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
-        document.querySelector('#switch-state').addEventListener('click', led_on2);
+       // document.querySelector('#switch-state').addEventListener('click', led_on);
         
         function led_off() {
             var topic = device_id+'/in/write';
