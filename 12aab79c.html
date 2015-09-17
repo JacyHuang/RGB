@@ -284,9 +284,9 @@
 
  
             checksw=document.getElementById("switch-state");
-            if(checksw != prechecksw)
+            if(checksw.checked != prechecksw.checked)
             {
-            	prechecksw = checksw;
+            	prechecksw.checked = checksw.checked;
             var topic = device_id+'/in/write';
          		 var commond = '{"rgbled_switch":' + checksw.checked + '}';
             client.publish(topic, commond);
