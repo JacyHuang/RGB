@@ -20,9 +20,8 @@
     $("input[type=\"checkbox\"], input[type=\"radio\"]").not("[data-switch-no-init]").bootstrapSwitch();
     
     $('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
-			var check=document.getElementById("switch-state");
 			var topic = device_id+'/in/write';
-			var commond = '{"rgbled_switch":' + check.checked + '}';
+			var commond = '{"rgbled_switch":' + state + '}';
 			client.publish(topic, commond);
 		  alert("123");
 		});
