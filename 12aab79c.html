@@ -279,14 +279,14 @@
         // document.querySelector('#send2uart').addEventListener('touchstart', send2uart);
         document.querySelector('#send2uart').addEventListener('click', send2uart);
 
-        function switch_state() {
+        function led_on() {
             var check=document.getElementById("switch_state");
             var topic = device_id+'/in/write';
           var commond = '{"rgbled_switch":' + check.checked + '}';
             client.publish(topic, commond);
         }
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
-        document.querySelector('#switch_state').addEventListener('click', switch_state);
+        document.querySelector('#led_on').addEventListener('click', led_on);
         
         function led_off() {
             var topic = device_id+'/in/write';
