@@ -282,8 +282,8 @@
         function led_on() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true}';
-            var x=document.getElementsById("switch-state");
-            client.publish(topic, x.checkbox);
+            var check=document.getElementById("switch-state");
+            client.publish(topic, check.value);
         }
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
         document.querySelector('#led_on').addEventListener('click', led_on);
