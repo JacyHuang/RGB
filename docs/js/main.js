@@ -20,7 +20,7 @@
     $("input[type=\"checkbox\"], input[type=\"radio\"]").not("[data-switch-no-init]").bootstrapSwitch();
     
     $('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
-		  alert("state");
+		  alert(state);
 		});
 		
     $("[data-switch-get]").on("click", function() {
