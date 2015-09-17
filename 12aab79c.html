@@ -162,7 +162,7 @@
 <body>	
 	<h3 align="center">ÔÆµÆ¿ØÖÆ</h3>
 		<div class="col-sm-6 col-lg-4" align="right">
-				<input id="switch-state" type="checkbox" checked>
+				<input id="switch_state" type="checkbox" checked>
 		</div>
   <div id="debug"></div>
   <div class="bar-footer" style="bottom:0;position:absolute">
@@ -279,14 +279,14 @@
         // document.querySelector('#send2uart').addEventListener('touchstart', send2uart);
         document.querySelector('#send2uart').addEventListener('click', send2uart);
 
-        function led_on() {
-            var check=document.getElementById("switch-state");
+        function switch_state() {
+            var check=document.getElementById("switch_state");
             var topic = device_id+'/in/write';
           var commond = '{"rgbled_switch":' + check.checked + '}';
             client.publish(topic, commond);
         }
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
-        document.querySelector('#led_on').addEventListener('click', led_on);
+        document.querySelector('#switch_state').addEventListener('click', switch_state);
         
         function led_off() {
             var topic = device_id+'/in/write';
