@@ -282,7 +282,7 @@
         function led_on() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true}';
-            var x=document.getElementsByName("checkbox");
+            var x=document.getElementsByName("switch-state");
             client.publish(topic, x);
         }
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
