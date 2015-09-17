@@ -286,10 +286,7 @@ function getcheck(){
 var x=document.getElementsByName("checkbox");
 var topic = device_id+'/in/write';
 var commond = '{"test":true}';
-for (var i=0;i<x.length;i++)
-{
-alter(x[i].value +" is checked!");
-}
+
 client.publish(topic, commond);
 }
 document.querySelector('#led_on').addEventListener('click', led_on);
