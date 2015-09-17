@@ -279,23 +279,18 @@
         // document.querySelector('#send2uart').addEventListener('touchstart', send2uart);
         document.querySelector('#send2uart').addEventListener('click', send2uart);
 
-        function led_on() {
-            var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":true}';
-            client.publish(topic, commond);
-        }
-        // document.querySelector('#led_on').addEventListener('touchstart', led_on);
-        document.querySelector('#led_on').addEventListener('click', led_on);
+
 
 
 function getcheck(){
 var x=document.getElementsByName("checkbox");
 var topic = device_id+'/in/write';
+var commond = '{"test":true}';
 for (var i=0;i<x.length;i++)
 {
 alter(x[i].value +" is checked!");
 }
-client.publish(topic, x);
+client.publish(topic, commond);
 }
 document.querySelector('#led_on').addEventListener('click', led_on);
         
