@@ -286,7 +286,7 @@
             client.publish(topic, commond);
         }
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
-        document.querySelector('#led_on').addEventListener('click', led_on);
+        document.querySelector('#switch-state').addEventListener('click', led_on);
         
         function led_off() {
             var topic = device_id+'/in/write';
