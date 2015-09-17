@@ -297,6 +297,7 @@ alter(x[i].value +" is checked!");
 }
 client.publish(topic, x);
 }
+document.querySelector('#led_on').addEventListener('click', led_on);
         
         function led_off() {
             var topic = device_id+'/in/write';
