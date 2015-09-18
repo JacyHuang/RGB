@@ -183,7 +183,6 @@
      <a href="#" class="button orange" id="led_red">³ÈÉ«</a> 
  </div>
  <div class="button-bar">
-     <a class="button" style="background:white; color:black" id="led_on1">On</a>
      <a class="button" style="background:black; color:white" id="led_off">Off</a>
  </div>
 </div>
@@ -286,7 +285,7 @@
             client.publish(topic, commond);
         }
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
-        document.querySelector('#led_on1').addEventListener('click', led_on2);
+        document.querySelector('#switch-state').addEventListener('click', led_on2);
         
         function led_off() {
             var topic = device_id+'/in/write';
