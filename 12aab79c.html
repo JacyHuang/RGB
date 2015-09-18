@@ -5,30 +5,11 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
     <title>HomeLink</title>
     	<link rel="stylesheet" type="text/css" href="css/default.css">
-
     <link href="docs/css/highlight.css" rel="stylesheet">
     <link href="css/bootstrap3/bootstrap-switch.css" rel="stylesheet">
-
     <link href="docs/css/main.css" rel="stylesheet">
+    <link href="docs/css/header.css" rel="stylesheet">
     <style type="text/css">
-        #debug {
-            margin-top:10px;
-            background-color: white;
-            color: black;
-            font-size: 12px;
-        }
-        #debug p {
-            padding: 3px 5px;
-            word-wrap: break-word;
-        }
-        .gray {
-            background-color: #ddd;
-        }
-        #debug span {
-            display: block;
-            word-wrap: break-word;
-            margin-bottom: 2px;
-        }
         .button {
 				display: inline-block;
 				outline: none;
@@ -158,9 +139,12 @@
     </style>
 </head>
 <body>	
-	<h3 align="center">ÔÆµÆ¿ØÖÆ</h3>
-		<div class="col-sm-6 col-lg-4" align="right">
-				<input name="sw-checkbox" id="switch-state" type="checkbox" checked>
+
+				<header id="header" class="header">
+			<span class="center" id="device_name">ÔÆµÆ¿ØÖÆ</span>
+		</header>
+				<div class="col-sm-6 col-lg-4" align="right">
+				<br><input name="sw-checkbox" id="switch-state" type="checkbox" checked>
 		</div>
 
   <div class="bar-footer" style="bottom:0;position:absolute">
