@@ -14,7 +14,10 @@
         #debug {
             margin-top:10px;
             background-color: white;
+            height: 200px;
+            overflow: scroll;
             color: black;
+            font-size: 12px;
         }
         #debug p {
             padding: 3px 5px;
@@ -244,23 +247,23 @@
             // topic：通道
             // commond：指令
             client.publish = function(topic, commond) {
-              //  console.log("现在执行-->:"+commond);
+                console.log("现在执行-->:"+commond);
                 message = new Paho.MQTT.Message(commond);
                 message.destinationName = topic;
                 client.send(message);
             }
-          //  console.log("device_id:"+device_id);
-         //   console.log("onConnect");
+            console.log("device_id:"+device_id);
+            console.log("onConnect");
             client.subscribe(subtopic, {qos: 0});
         }
         // 连接丢失
         function onConnectionLost(responseObject) {
             if (responseObject.errorCode !== 0)
-              //  console.log("onConnectionLost:"+responseObject.errorMessage);
+                console.log("onConnectionLost:"+responseObject.errorMessage);
         }
         // 消息到达
         function onMessageArrived(message) {
-           // console.log("消息到达：" + ': ' +  message.payloadString);
+            console.log("消息到达：" + ': ' +  message.payloadString);
         }
         $('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
 					            var check=document.getElementById("switch-state");
@@ -276,7 +279,7 @@
             if ( inputMessage.value.length == 0 ) return;
             var topic = device_id+'/in/write';
             client.publish(topic, inputMessage.value);
-       //     console.log(inputMessage.value);
+            console.log(inputMessage.value);
             inputMessage.value = '';
         }
         // document.querySelector('#send2uart').addEventListener('touchstart', send2uart);
