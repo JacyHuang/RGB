@@ -164,7 +164,7 @@
 		<div class="col-sm-6 col-lg-4" align="right">
 				<input name="sw-checkbox" id="switch-state" type="checkbox" checked>
 		</div>
-  <div id="debug"></div>
+
   <div class="bar-footer" style="bottom:0;position:absolute">
 
 
@@ -284,28 +284,6 @@
         // document.querySelector('#led_blue').addEventListener('touchstart', led_blue);
         document.querySelector('#led_blue').addEventListener('click', led_blue);
     }
-
-    // 日志打印在页面的部分    
-    var i = 0;
-    console.log = (function(old_funct, div_log) {
-        return function(text) {
-            old_funct(text);
-            var p = '';
-            if (i%2 == 0)
-                p = '<p>';
-            else
-                p = '<p class=\'gray\'>';
-
-            if (typeof text === "object")
-                div_log.innerHTML += p + JSON.stringify(text) + '</p>';
-            else
-                div_log.innerHTML += p + text + '</p>';
-
-            div_log.scrollTop = div_log.scrollHeight;
-            i += 1;
-        };
-    } (console.log.bind(console), document.getElementById("debug")));
-    console.error = console.debug = console.info =  console.log;
 </script>
 </body>
 </html>
