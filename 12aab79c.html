@@ -265,8 +265,11 @@
         function onMessageArrived(message) {
             console.log("消息到达：" + ': ' +  message.payloadString);
         }
-        					$('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
-					console.log(state); // true | false
+        $('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+					            var check=document.getElementById("switch-state");
+            var topic = device_id+'/in/write';
+          var commond = '{"rgbled_switch":' + check.checked + '}';
+            client.publish(topic, commond);
 				});
 
         // 串口数据发送部分
