@@ -194,6 +194,12 @@
 <script src="docs/js/main.js"></script>
 <script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
 <script language="javascript">
+					$('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+					 var check=document.getElementById("switch-state");
+            var topic = device_id+'/in/write';
+          var commond = '{"rgbled_switch":' + check.checked + '}';
+            client.publish(topic, commond);
+				});
     // 从url中获取某个参数的值
     function getParameterByName(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -285,12 +291,7 @@
           var commond = '{"rgbled_switch":' + check.checked + '}';
             client.publish(topic, commond);
         }
-				$('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
 
-            var topic = device_id+'/in/write';
-          var commond = '{"rgbled_switch":' + state + '}';
-            client.publish(topic, commond);
-				});
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
         document.querySelector('#led_on').addEventListener('click', led_on);
         
