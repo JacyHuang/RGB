@@ -194,9 +194,6 @@
 <script src="docs/js/main.js"></script>
 <script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
 <script language="javascript">
-					$('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
-					console.log(state); // true | false
-				});
     // 从url中获取某个参数的值
     function getParameterByName(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -268,6 +265,9 @@
         function onMessageArrived(message) {
             console.log("消息到达：" + ': ' +  message.payloadString);
         }
+        					$('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+					console.log(state); // true | false
+				});
 
         // 串口数据发送部分
         var inputMessage = document.getElementById('message');
