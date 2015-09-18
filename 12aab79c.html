@@ -195,10 +195,7 @@
 <script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
 <script language="javascript">
 					$('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
-					 var check=document.getElementById("switch-state");
-            var topic = device_id+'/in/write';
-          var commond = '{"rgbled_switch":' + check.checked + '}';
-            client.publish(topic, commond);
+					console.log(state); // true | false
 				});
     // 从url中获取某个参数的值
     function getParameterByName(name) {
