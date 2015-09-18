@@ -295,6 +295,13 @@
         }
         // document.querySelector('#led_off').addEventListener('touchstart', led_off);
         document.querySelector('#led_off').addEventListener('click', led_off);
+        
+        $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+            var check=document.getElementById("switch-state");
+            var topic = device_id+'/in/write';
+          var commond = '{"rgbled_switch":' + check.checked + '}';
+            client.publish(topic, commond);
+				});
 
         function led_red() {
             var topic = device_id+'/in/write';
