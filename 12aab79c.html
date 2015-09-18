@@ -193,7 +193,7 @@
 <script src="js/bootstrap-switch.js"></script>
 <script src="docs/js/main.js"></script>
 <script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
-<script>
+<script language="javascript">
     // 从url中获取某个参数的值
     function getParameterByName(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -285,6 +285,12 @@
           var commond = '{"rgbled_switch":' + check.checked + '}';
             client.publish(topic, commond);
         }
+				$('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+
+            var topic = device_id+'/in/write';
+          var commond = '{"rgbled_switch":' + state + '}';
+            client.publish(topic, commond);
+				});
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
         document.querySelector('#led_on').addEventListener('click', led_on);
         
@@ -295,13 +301,6 @@
         }
         // document.querySelector('#led_off').addEventListener('touchstart', led_off);
         document.querySelector('#led_off').addEventListener('click', led_off);
-        
-        $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
-            var check=document.getElementById("switch-state");
-            var topic = device_id+'/in/write';
-          var commond = '{"rgbled_switch":' + check.checked + '}';
-            client.publish(topic, commond);
-				});
 
         function led_red() {
             var topic = device_id+'/in/write';
@@ -349,7 +348,6 @@
         };
     } (console.log.bind(console), document.getElementById("debug")));
     console.error = console.debug = console.info =  console.log;
-
 </script>
 </body>
 </html>

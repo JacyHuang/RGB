@@ -18,7 +18,6 @@
       }
     });
     $("input[type=\"checkbox\"], input[type=\"radio\"]").not("[data-switch-no-init]").bootstrapSwitch();
-		
     $("[data-switch-get]").on("click", function() {
       var type;
       type = $(this).data("switch-get");
