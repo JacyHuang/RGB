@@ -62,28 +62,6 @@
             });
 };
 
-$scope.reloadPage = function() {
- $http.post(
-   'http://api.easylink.io/v1/device/devices',
-   null,{
-     headers : {
-       'AUTHORIZATION' : "token " + access_token
-     }
-   }
-   ).success(function(data) {
-    $scope.items = [];
-    for ( var i in data ) {
-      var device = data[i];
-      if ( device === null ) continue;
-      var product_id = device.id.split('/')[0];
-      var alias = device.alias ? device.alias : device.id;
-      $scope.items.push({'alias': alias, 'device_id': device.id, 'product_id': product_id, 'time': device.created, 'state': device.online});
-    }
-  }).error(function(data) {
-   alert(data.error.message);
-   return;
- });
-};
 });
 </script>
 </head>
