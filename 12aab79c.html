@@ -190,7 +190,7 @@
 <script src="js/bootstrap-switch.js"></script>
 <script src="docs/js/main.js"></script>
 <script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
-<script language="javascript">
+<script>
     // 从url中获取某个参数的值
     function getParameterByName(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -244,27 +244,54 @@
             // topic：通道
             // commond：指令
             client.publish = function(topic, commond) {
+                console.log("现在执行-->:"+commond);
                 message = new Paho.MQTT.Message(commond);
                 message.destinationName = topic;
                 client.send(message);
             }
+            console.log("device_id:"+device_id);
+            console.log("onConnect");
             client.subscribe(subtopic, {qos: 0});
         }
         // 连接丢失
         function onConnectionLost(responseObject) {
             if (responseObject.errorCode !== 0)
-            {
-            }
+                console.log("onConnectionLost:"+responseObject.errorMessage);
         }
         // 消息到达
         function onMessageArrived(message) {
+            console.log(message.topic + ': ' +  message.payloadString);
         }
-        $('input[name="sw-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
-					            var check=document.getElementById("switch-state");
+
+        // 串口数据发送部分
+        var inputMessage = document.getElementById('message');
+        // 将消息发送到指定的通道
+        function send2uart() {
+            if ( inputMessage.value.length == 0 ) return;
             var topic = device_id+'/in/write';
-          var commond = '{"rgbled_switch":' + check.checked + '}';
+            var commond = '{"11":"' + inputMessage.value + '"}';
             client.publish(topic, commond);
-				});
+            console.log(inputMessage.value);
+            inputMessage.value = '';
+        }
+        // document.querySelector('#send2uart').addEventListener('touchstart', send2uart);
+        document.querySelector('#send2uart').addEventListener('click', send2uart);
+
+        function led_on() {
+            var topic = device_id+'/in/write';
+            var commond = '{"rgbled_switch":true}';
+            client.publish(topic, commond);
+        }
+        // document.querySelector('#led_on').addEventListener('touchstart', led_on);
+        document.querySelector('#led_on').addEventListener('click', led_on);
+
+        function led_off() {
+            var topic = device_id+'/in/write';
+            var commond = '{"rgbled_switch":false}';
+            client.publish(topic, commond);
+        }
+        // document.querySelector('#led_off').addEventListener('touchstart', led_off);
+        document.querySelector('#led_off').addEventListener('click', led_off);
 
         function led_red() {
             var topic = device_id+'/in/write';
@@ -290,6 +317,29 @@
         // document.querySelector('#led_blue').addEventListener('touchstart', led_blue);
         document.querySelector('#led_blue').addEventListener('click', led_blue);
     }
+
+    // 日志打印在页面的部分    
+    var i = 0;
+    console.log = (function(old_funct, div_log) {
+        return function(text) {
+            old_funct(text);
+            var p = '';
+            if (i%2 == 0)
+                p = '<p>';
+            else
+                p = '<p class=\'gray\'>';
+
+            if (typeof text === "object")
+                div_log.innerHTML += p + JSON.stringify(text) + '</p>';
+            else
+                div_log.innerHTML += p + text + '</p>';
+
+            div_log.scrollTop = div_log.scrollHeight;
+            i += 1;
+        };
+    } (console.log.bind(console), document.getElementById("debug")));
+    console.error = console.debug = console.info =  console.log;
+
 </script>
 </body>
 </html>
