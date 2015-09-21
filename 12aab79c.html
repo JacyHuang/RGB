@@ -29,15 +29,19 @@
     </style>
 </head>
 <body>
-    <div class="bar bar-header bar-assertive">
+   <div class="bar bar-header bar-assertive">
       <h1 class="title" id="device_id"></h1>
   </div>
+  <div id="debug"></div>
+
+  <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
 
  <div class="button-bar">
      <a class="button" style="background:red; color:white" id="led_red">Red</a>
      <a class="button" style="background:green; color:white" id="led_green">Green</a>
      <a class="button" style="background:blue; color:white" id="led_blue">Blue</a>
  </div>
+</div>
 
 <script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
 <script>
