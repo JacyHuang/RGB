@@ -84,5 +84,39 @@
           ]
         });  
 		}
+		
+		$scope.showPopup_Add = function() {
+    $scope.data = {}
+
+      // An elaborate, custom popup
+      var myPopup = $ionicPopup.show({
+        template: '<input type="text" ng-model="data.alias">',
+        title: '',
+        subTitle: '名称',
+        scope: $scope,
+        buttons: [
+        {
+          text: '<b>保存</b>',
+          type: 'button-positive',
+          onTap: function(e) {
+          if (!$scope.data.alias) {
+          e.preventDefault();
+          } else {
+								alias     : $scope.data.alias
+                $scope.items.push($scope.data.alias);
+					      $scope.$broadcast('scroll.refreshComplete');
+            }
+          }
+        },
+        { 
+        	text: '取消' ,
+        	type: 'button-positive',
+        	onTap: function(e) {
+        		$ionicListDelegate.closeOptionButtons();  
+        	}
+        }
+        ]
+      });  
+	}
   
 });

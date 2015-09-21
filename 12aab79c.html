@@ -18,8 +18,10 @@
 
 		<ion-header-bar class="bar-positive">
 			<h1 class="title">云灯控制</h1>
+			    <div class="buttons">
+    	<button class="button ion-plus" ng-click="showPopup_Add()"></button>
+  	</div>
 		</ion-header-bar>
-        <!--ion-loading abcd四种效果-->        
 		<ion-content>
 			<ion-refresher on-refresh="doRefresh()"
 			               pulling-text="Pull to refresh..." 
