@@ -117,6 +117,11 @@
         }
         ]
       });  
-	}
-  
+		}		
+
+		
+		$scope.CtrlDevice = function(item) {
+			var index = $scope.items.indexOf(item);
+			led_red();
+		}  
 });
