@@ -16,14 +16,42 @@
 
 	<body>
 
+		<ion-header-bar class="bar-positive">
+			<h1 class="title">云灯控制</h1>
+			    <div class="buttons">
+    	<button class="button ion-plus" ng-click="showPopup_Add()"></button>
+  	</div>
+		</ion-header-bar>
+		<ion-content ng-controller="MyCtrl">
+			<ion-refresher on-refresh="doRefresh()"
+			               pulling-text="Pull to refresh..." 
+			               refreshing-text="Refreshing!"
+			               refreshing-icon="ion-loading-b">
+				
+			</ion-refresher>
+			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
+				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">{{item}}
+					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
+					编辑
+					</ion-option-button>
+					<ion-option-button class="button-assertive" ng-click="showPopup_Delete(item)">
+					删除
+					</ion-option-button>
+				</ion-item>
+			</ion-list>
+		</ion-content>
+		
  <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
 
  <div class="button-bar">
-     <a class="button" style="background:red; color:white" id="led_red">Red1</a>
+     <a class="button" style="background:red; color:white" id="led_red">Red</a>
      <a class="button" style="background:green; color:white" id="led_green">Green</a>
      <a class="button" style="background:blue; color:white" id="led_blue">Blue</a>
  </div>
 </div>
+
+
+	</body>
 <script>
     // 从url中获取某个参数的值
     function getParameterByName(name) {
@@ -118,32 +146,4 @@
     }
 
 </script>		
-		<ion-header-bar class="bar-positive">
-			<h1 class="title">云灯控制</h1>
-			    <div class="buttons">
-    	<button class="button ion-plus" ng-click="showPopup_Add()"></button>
-  	</div>
-		</ion-header-bar>
-		<ion-content ng-controller="MyCtrl">
-			<ion-refresher on-refresh="doRefresh()"
-			               pulling-text="Pull to refresh..." 
-			               refreshing-text="Refreshing!"
-			               refreshing-icon="ion-loading-b">
-				
-			</ion-refresher>
-			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
-				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">{{item}}
-					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
-					编辑
-					</ion-option-button>
-					<ion-option-button class="button-assertive" ng-click="showPopup_Delete(item)">
-					删除
-					</ion-option-button>
-				</ion-item>
-			</ion-list>
-		</ion-content>
-		
-
-
-	</body>
 </html>
