@@ -30,7 +30,7 @@
 				
 			</ion-refresher>
 			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
-				<ion-item ng-repeat="item in items">{{item}}
+				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">{{item}}
 					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
 					编辑
 					</ion-option-button>

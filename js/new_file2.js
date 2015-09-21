@@ -1,7 +1,7 @@
 ﻿angular.module('ionicApp', ['ionic'])
 
 .controller('MyCtrl', function($scope, $ionicPopup, $ionicListDelegate, $timeout) {
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+  $scope.items = ['红色', '绿色', '蓝色'];
   
   $scope.doRefresh = function() {
     
@@ -122,6 +122,21 @@
 		
 		$scope.CtrlDevice = function(item) {
 			var index = $scope.items.indexOf(item);
-			led_red();
+			//alert("123");
+			switch(index)
+			{
+				case 0:
+					led_red();
+				break;
+				case 1:
+					alert("1");
+				break;
+				case 2:
+					alert("2");
+				break;
+				default:
+					alert("error");
+				break;
+			}
 		}  
 });
