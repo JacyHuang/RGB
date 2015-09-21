@@ -95,23 +95,18 @@
             // topic：通道
             // commond：指令
             client.publish = function(topic, commond) {
-                console.log("现在执行-->:"+commond);
                 message = new Paho.MQTT.Message(commond);
                 message.destinationName = topic;
                 client.send(message);
             }
-            console.log("device_id:"+device_id);
-            console.log("onConnect");
             client.subscribe(subtopic, {qos: 0});
         }
         // 连接丢失
         function onConnectionLost(responseObject) {
             if (responseObject.errorCode !== 0)
-                console.log("onConnectionLost:"+responseObject.errorMessage);
         }
         // 消息到达
         function onMessageArrived(message) {
-            console.log(message.topic + ': ' +  message.payloadString);
         }
 
         function led_red() {
