@@ -40,8 +40,8 @@
 				</ion-item>
 			</ion-list>
 		</ion-content>
-		<script>
-   // 从url中获取某个参数的值
+<script language="javascript">
+    // 从url中获取某个参数的值
     function getParameterByName(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
         return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
@@ -134,7 +134,7 @@
             client.publish(topic, commond);
         }
     }
- </script>
+</script>
 	</body>
 
 </html>
