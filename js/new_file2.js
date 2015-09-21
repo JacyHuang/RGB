@@ -1,6 +1,6 @@
-angular.module('ionicApp', ['ionic'])
+Ôªøangular.module('ionicApp', ['ionic'])
 
-.controller('MyCtrl', function($scope, $ionicPopup, $timeout) {
+.controller('MyCtrl', function($scope, $ionicPopup, $ionicListDelegate, $timeout) {
   $scope.items = ['Item 1', 'Item 2', 'Item 3'];
   
   $scope.doRefresh = function() {
@@ -30,16 +30,31 @@ angular.module('ionicApp', ['ionic'])
           var myPopup = $ionicPopup.show({
             template: '<input type="text" ng-model="data.alias">',
             title: '',
-            subTitle: '–ﬁ∏ƒ√˚≥∆',
+            subTitle: '‰øÆÊîπÂêçÁß∞',
             scope: $scope,
             buttons: [
-            { text: 'Cancel' },
+            { 
+            	text: 'Cancel' ,
+            	type: 'button-positive',
+            	onTap: function(e) {
+            		$ionicListDelegate.closeOptionButtons();  
+            	}
+            },
             {
               text: '<b>Save</b>',
               type: 'button-positive',
+              onTap: function(e) {
+              if (!$scope.data.alias) {
+              e.preventDefault();
+              } else {
+										alias     : $scope.data.alias
+                    $scope.items[index] = $scope.data.alias;
+                    $ionicListDelegate.closeOptionButtons();  
+                }
               }
-              ]
-            });
+            }
+            ]
+          });
   
 			}
   
