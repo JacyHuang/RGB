@@ -119,7 +119,7 @@
       });  
 		}		
 
-		
+
 		$scope.CtrlDevice = function(item) {
 			var index = $scope.items.indexOf(item);
 			//alert("123");
