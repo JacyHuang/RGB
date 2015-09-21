@@ -1,6 +1,6 @@
 angular.module('ionicApp', ['ionic'])
 
-.controller('MyCtrl', function($scope, $timeout) {
+.controller('MyCtrl', function($scope, $ionicPopup, $timeout) {
   $scope.items = ['Item 1', 'Item 2', 'Item 3'];
   
   $scope.doRefresh = function() {

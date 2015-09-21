@@ -16,7 +16,7 @@
 	<body ng-controller="MyCtrl">
 
 		<ion-header-bar class="bar-positive">
-			<h1 class="title">Pull To Refresh</h1>
+			<h1 class="title">云灯控制</h1>
 		</ion-header-bar>
         <!--ion-loading abcd四种效果-->        
 		<ion-content>
@@ -28,11 +28,10 @@
 			</ion-refresher>
 			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
 				<ion-item ng-repeat="item in items">{{item}}
-					<ion-option-button class="button-assertive"
-ng-click="showPopup(item)">
-Edit
-</ion-option-button>
-</ion-item>
+					<ion-option-button class="button-assertive" ng-click="showPopup(item)">
+					Edit
+					</ion-option-button>
+				</ion-item>
 			</ion-list>
 		</ion-content>
 
