@@ -30,7 +30,7 @@
 				
 			</ion-refresher>
 			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
-				<ion-item ng-repeat="item in items" ng-click="led_red()">{{item}}
+				<ion-item ng-repeat="item in items">{{item}}
 					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
 					编辑
 					</ion-option-button>
@@ -40,6 +40,12 @@
 				</ion-item>
 			</ion-list>
 		</ion-content>
+ <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
+
+ <div class="button-bar">
+     <a class="button" style="background:red; color:white" id="led_red">Red</a>
+ </div>
+</div>
 
 <script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
 <script>
