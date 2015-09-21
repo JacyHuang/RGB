@@ -34,7 +34,7 @@
 					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
 					编辑
 					</ion-option-button>
-					<ion-option-button class="button-assertive" ng-click="showPopup_Delete(item)">
+					<ion-option-button class="button-assertive" ng-click="led_green()">
 					删除
 					</ion-option-button>
 				</ion-item>
@@ -44,6 +44,8 @@
 
  <div class="button-bar">
      <a class="button" style="background:red; color:white" id="led_red">Red</a>
+     <a class="button" style="background:green; color:white" id="led_green">Green</a>
+     <a class="button" style="background:blue; color:white" id="led_blue">Blue</a>
  </div>
 </div>
 
@@ -130,12 +132,16 @@
             var commond = '{"rgbled_switch":true,"rgbled_hues":120, "rgbled_saturation":100, "rgbled_brightness":100}'; 
             client.publish(topic, commond);
         }
+        // document.querySelector('#led_green').addEventListener('touchstart', led_green);
+        document.querySelector('#led_green').addEventListener('click', led_green);
 
         function led_blue() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true,"rgbled_hues":240, "rgbled_saturation":100, "rgbled_brightness":100}'; 
             client.publish(topic, commond);
         }
+        // document.querySelector('#led_blue').addEventListener('touchstart', led_blue);
+        document.querySelector('#led_blue').addEventListener('click', led_blue);
     }
 
 </script>		
