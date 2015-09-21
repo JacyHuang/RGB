@@ -36,11 +36,12 @@
       $scope.items = device_list;
       $scope.access_token = access_token;
       
-      $scope.data = {
+    $scope.data = {
         showDelete: false
       };
       $scope.listCanSwipe = true;
-   $scope.showPopup = function(item) {
+      
+      $scope.showPopup = function(item) {
         var index = $scope.items.indexOf(item);
         $scope.data = {}
 
@@ -60,7 +61,6 @@
             });
   
 			}
-};
 
 $scope.reloadPage = function() {
  $http.post(
