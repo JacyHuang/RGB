@@ -126,7 +126,7 @@
 			switch(index)
 			{
 				case 0:
-					led_red();
+					alert("0");
 				break;
 				case 1:
 					alert("1");
