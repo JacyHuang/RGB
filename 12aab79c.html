@@ -99,8 +99,6 @@
                 message.destinationName = topic;
                 client.send(message);
             }
-            console.log("device_id:"+device_id);
-            console.log("onConnect");
             client.subscribe(subtopic, {qos: 0});
         }
         // 连接丢失
