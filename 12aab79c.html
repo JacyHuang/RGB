@@ -30,11 +30,11 @@
 				
 			</ion-refresher>
 			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
-				<ion-item ng-repeat="item in items" ng-click="led_red()">{{item}}
+				<ion-item ng-repeat="item in items">{{item}}
 					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
 					编辑
 					</ion-option-button>
-					<ion-option-button class="button-assertive" ng-click="showPopup_Delete(item)">
+					<ion-option-button class="button-assertive" ng-click="led_red()">
 					删除
 					</ion-option-button>
 				</ion-item>
