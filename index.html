@@ -40,7 +40,7 @@
         showDelete: false
       };
       $scope.listCanSwipe = true;
-      $scope.showPopup = function(item) {
+   $scope.showPopup = function(item) {
         var index = $scope.items.indexOf(item);
         $scope.data = {}
 
@@ -55,33 +55,11 @@
             {
               text: '<b>Save</b>',
               type: 'button-positive',
-              onTap: function(e) {
-                if (!$scope.data.alias) {
-                  e.preventDefault();
-                } else {
-                  $http.post(
-                    'http://api.easylink.io/v1/device/modify',
-                    {
-                      device_id : item.device_id,
-                      alias     : $scope.data.alias
-                    }, {
-                      headers : {
-                        'AUTHORIZATION' : "token " + access_token
-                      }
-                    } 
-                    ).success(function(data) {
-                      $scope.items[index].alias = $scope.data.alias;
-                      $ionicListDelegate.closeOptionButtons();
-
-                    }).error(function(data){
-                      alert(data.error.message);
-                      return; 
-                    });  
-                  }
-                }
               }
               ]
             });
+  
+			}
 };
 
 $scope.reloadPage = function() {
