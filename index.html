@@ -112,11 +112,10 @@ $scope.reloadPage = function() {
 <body ng-controller="MyCtrl">
   	<div class="bar bar-header bar-calm">
   <h1 class="title">我的设备</h1>
-</div>
   <div class="buttons">
     <button class="button ion-refresh" ng-click="reloadPage()"></button>
   </div>
-</ion-header-bar>
+</div>
 <ion-content>
 <ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
 <ion-item ng-repeat="item in items" 
