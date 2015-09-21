@@ -104,11 +104,9 @@
         // 连接丢失
         function onConnectionLost(responseObject) {
             if (responseObject.errorCode !== 0)
-                console.log("onConnectionLost:"+responseObject.errorMessage);
         }
         // 消息到达
         function onMessageArrived(message) {
-            console.log(message.topic + ': ' +  message.payloadString);
         }
 
         function led_red() {
