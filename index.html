@@ -127,6 +127,9 @@ href="{{ item.product_id }}.html?device_id={{ item.device_id }}&access_token={{ 
 ng-click="showPopup(item)">
 Edit
 </ion-option-button>
+<ion-option-button class="button-assertive" ng-click="items.splice($index, 1)">
+Delete
+</ion-option-button>
 </ion-item>
 </ion-list>
 </ion-content>
