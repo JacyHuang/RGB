@@ -122,13 +122,14 @@
             var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
             client.publish(topic, commond);
         }
+        // document.querySelector('#led_red').addEventListener('touchstart', led_red);
+        document.querySelector('#led_red').addEventListener('click', led_red);
 
         function led_green() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true,"rgbled_hues":120, "rgbled_saturation":100, "rgbled_brightness":100}'; 
             client.publish(topic, commond);
         }
-        // document.querySelector('#led_green').addEventListener('t
 
         function led_blue() {
             var topic = device_id+'/in/write';
