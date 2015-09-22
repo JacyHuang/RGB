@@ -55,11 +55,11 @@
      <a class="button" style="background:red; color:white" id="led_red">Red</a>
      <a class="button" style="background:green; color:white" id="led_green">Green</a>
      <a class="button" style="background:blue; color:white" id="led_blue">Blue</a>
-     <a class="button" style="background:black; color:white" onclick="led_red()">Test</a>
+     <a class="button" style="background:black; color:white" onclick="test111()">Test</a>
  </div>
 </div>
-
 <script>
+
     // 从url中获取某个参数的值
     function getParameterByName(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -126,7 +126,9 @@
         // 消息到达
         function onMessageArrived(message) {
         }
-
+			 function test111(responseObject) {
+           alert("hhh121hh");
+        }
         function led_red() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
