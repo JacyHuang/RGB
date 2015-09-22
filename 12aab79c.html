@@ -51,13 +51,6 @@
 			</ion-list>
 		</ion-content>
 
- <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
- <div class="button-bar">
-     <a class="button" style="background:red; color:white" id="led_red">Red</a>
-     <a class="button" style="background:green; color:white" id="led_green">Green</a>
-     <a class="button" style="background:blue; color:white" id="led_blue">Blue</a>
- </div>
-</div>
 <script src="./js/mqttws31.js"></script>
 <script src="./js/jquery-2.1.3.js"></script>
 <script>
@@ -128,6 +121,7 @@
         // 消息到达
         function onMessageArrived(message) {
         }
+        
         $(document).ready(function(){
 					$(document).on("click",'ion-item',function(){  	
 					  switch(Item_ID)
@@ -144,25 +138,18 @@
             var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
             client.publish(topic, commond);
         }
-        // document.querySelector('#led_red').addEventListener('touchstart', led_red);
-        document.querySelector('#led_red').addEventListener('click', led_red);
 
         function led_green() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true,"rgbled_hues":120, "rgbled_saturation":100, "rgbled_brightness":100}'; 
             client.publish(topic, commond);
         }
-        // document.querySelector('#led_green').addEventListener('touchstart', led_green);
-        document.querySelector('#led_green').addEventListener('click', led_green);
 
         function led_blue() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true,"rgbled_hues":240, "rgbled_saturation":100, "rgbled_brightness":100}'; 
             client.publish(topic, commond);
-        }
-        // document.querySelector('#led_blue').addEventListener('touchstart', led_blue);
-        document.querySelector('#led_blue').addEventListener('click', led_blue);
-        
+        }        
         
         function led_off() {
             var topic = device_id+'/in/write';
