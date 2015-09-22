@@ -1,24 +1,28 @@
-﻿<!DOCTYPE html>
-<html ng-app="ionicApp">
+﻿<html ng-app="ionicApp">
 
 	<head>
 		<meta charset="utf-8" id="device_id">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
 		<title>HomeLink</title>
-
-		<link href="http://api.easylink.io/bower_components/ionic/css/ionic.css" rel="stylesheet">
-		<script src="http://api.easylink.io/bower_components/ionic/js/ionic.bundle.js"></script>
+		<link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
 		<script type="text/javascript" src="js/new_file2.js"></script>
 		<script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
 	</head>
 
 	<body ng-controller="MyCtrl">
-
 		<ion-header-bar class="bar-positive">
+		<div class="buttons">
+    	<button class="button button-icon icon ion-ios-minus-outline"
+          ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+  	</div>
 			<h1 class="title">云灯控制</h1>
-			    <div class="buttons">
-    	<button class="button ion-plus" ng-click="showPopup_Add()"></button>
+		<div class="buttons">
+    	<button class="button button-icon icon ion-ios-plus-empty" 
+    		ng-click="showPopup_Add()"></button>
+    	<button class="button button-icon icon ion-ios-drag" 
+    		ng-click="data.showDelete = false; data.showReorder = !data.showReorder"></button>
   	</div>
 		</ion-header-bar>
 		<ion-content>
@@ -29,13 +33,17 @@
 				
 			</ion-refresher>
 			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
-				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">{{item}}
+				<ion-item ng-click="CtrlDevice(item)" ng-repeat="item in items">
+				<i class="button-icon icon ion-ios-lightbulb-outline positive"></i>	
+					{{item}}
+					<ion-delete-button class="ion-minus-circled" ng-click="showPopup_Delete(item)"></ion-delete-button>
 					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
 					编辑
 					</ion-option-button>
-					<ion-option-button class="button-assertive" ng-click="showPopup_Delete(item)">
-					删除
+					<ion-option-button class="button-assertive">
+					配对
 					</ion-option-button>
+					<ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
 				</ion-item>
 			</ion-list>
 		</ion-content>
