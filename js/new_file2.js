@@ -27,31 +27,7 @@
       $scope.listCanSwipe = true;
       
       $scope.showPopup_Delete = function(item) {
-        var index = $scope.items.indexOf(item);
-        $scope.data = {}
-
-          // An elaborate, custom popup
-          var myPopup = $ionicPopup.show({
-            title: '',
-            subTitle: '是否删除？',
-            scope: $scope,
-            buttons: [
-            {
-              text: '<b>确定</b>',
-              type: 'button-positive',
-              onTap: function(e) {
-              	$scope.items.splice(index, 1);
-              }
-            },
-            { 
-            	text: '取消' ,
-            	type: 'button-positive',
-            	onTap: function(e) {
-            		$ionicListDelegate.closeOptionButtons();  
-            	}
-            }
-            ]
-          });  
+        $scope.items.splice($scope.items.indexOf(item), 1);
 			}
 			
 		  $scope.showPopup_Edit = function(item) {
