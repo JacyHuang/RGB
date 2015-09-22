@@ -92,7 +92,7 @@
       var myPopup = $ionicPopup.show({
         template: '<input type="text" ng-model="data.alias">',
         title: '',
-        subTitle: '名称',
+        subTitle: '添加云灯',
         scope: $scope,
         buttons: [
         {

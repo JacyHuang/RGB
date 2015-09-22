@@ -10,11 +10,10 @@
 		<link href="http://api.easylink.io/bower_components/ionic/css/ionic.css" rel="stylesheet">
 		<script src="http://api.easylink.io/bower_components/ionic/js/ionic.bundle.js"></script>
 		<script type="text/javascript" src="js/new_file2.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/new_file.css" />
 		<script src="http://api.easylink.io/assets/js/mqttws31.js"></script>
 	</head>
 
-	<body>
+	<body ng-controller="MyCtrl">
 
 		<ion-header-bar class="bar-positive">
 			<h1 class="title">云灯控制</h1>
@@ -22,7 +21,26 @@
     	<button class="button ion-plus" ng-click="showPopup_Add()"></button>
   	</div>
 		</ion-header-bar>
-		 <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
+		<ion-content>
+			<ion-refresher on-refresh="doRefresh()"
+			               pulling-text="Pull to refresh..." 
+			               refreshing-text="Refreshing!"
+			               refreshing-icon="ion-loading-b">
+				
+			</ion-refresher>
+			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
+				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">{{item}}
+					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
+					编辑
+					</ion-option-button>
+					<ion-option-button class="button-assertive" ng-click="showPopup_Delete(item)">
+					删除
+					</ion-option-button>
+				</ion-item>
+			</ion-list>
+		</ion-content>
+		
+ <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
 
  <div class="button-bar">
      <a class="button" style="background:red; color:white" id="led_red">Red</a>
@@ -31,6 +49,8 @@
  </div>
 </div>
 
+
+	</body>
 <script>
     // 从url中获取某个参数的值
     function getParameterByName(name) {
@@ -125,26 +145,4 @@
     }
 
 </script>		
-		<ion-content ng-controller="MyCtrl">
-			<ion-refresher on-refresh="doRefresh()"
-			               pulling-text="Pull to refresh..." 
-			               refreshing-text="Refreshing!"
-			               refreshing-icon="ion-loading-b">
-				
-			</ion-refresher>
-			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">
-				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">{{item}}
-					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
-					编辑
-					</ion-option-button>
-					<ion-option-button class="button-assertive" ng-click="showPopup_Delete(item)">
-					删除
-					</ion-option-button>
-				</ion-item>
-			</ion-list>
-		</ion-content>
-		
-
-
-	</body>
 </html>
