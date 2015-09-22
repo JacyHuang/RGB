@@ -20,7 +20,8 @@ angular.module('ionicApp', ['ionic'])
     console.log('Refreshing!');
     $timeout( function() {
       //simulate async response
-      $scope.items.push('New Item ' + Math.floor(Math.random() * 1000) + 4);
+     // $scope.items.push('New Item ' + Math.floor(Math.random() * 1000) + 4);
+      $scope.items.push({'light_id':1, 'light_alias':'New Item ' + Math.floor(Math.random() * 1000) + 4, 'light_state':0})
 
       //Stop the ion-refresher from spinning
       $scope.$broadcast('scroll.refreshComplete');
