@@ -1,10 +1,4 @@
-﻿function getParameterFormTxt(name) {
-      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-    }  
-  
-  
-  var light_list = [];
+﻿  var light_list = [];
   var light_state=1;
   var light_alias="红色";
   var light_id=2;
@@ -62,7 +56,7 @@ angular.module('ionicApp', ['ionic'])
             e.preventDefault();
             } else {
 									alias     : $scope.data.alias
-                  $scope.items[index] = $scope.data.alias;
+                  $scope.items[index].light_alias = $scope.data.alias;
                   $ionicListDelegate.closeOptionButtons();  
               }
             }
@@ -96,7 +90,7 @@ angular.module('ionicApp', ['ionic'])
           e.preventDefault();
           } else {
 								alias     : $scope.data.alias
-                $scope.items.push($scope.data.alias);
+                $scope.items.push({'light_id':1, 'light_alias':$scope.data.alias, 'light_state':0})
 					      $scope.$broadcast('scroll.refreshComplete');
             }
           }
