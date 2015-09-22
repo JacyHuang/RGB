@@ -1,9 +1,15 @@
-﻿  var light_list = [];
+﻿function getParameterFormTxt(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    }  
+  
+  
+  var light_list = [];
   var light_state=1;
   var light_alias="红色";
   var light_id=2;
 
-  	light_list.push({'light_alias':light_alias, 'light_id':light_id, 'light_state':light_state});
+  	light_list.push({'light_id':light_id, 'light_alias':light_alias, 'light_state':light_state});
 
 angular.module('ionicApp', ['ionic'])
 
@@ -112,7 +118,7 @@ angular.module('ionicApp', ['ionic'])
 			switch(index)
 			{
 				case 0:
-					alert("0");
+					alert(window.location.search);
 				break;
 				case 1:
 					alert("1");
