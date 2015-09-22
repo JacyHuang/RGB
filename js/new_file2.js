@@ -1,8 +1,14 @@
-﻿angular.module('ionicApp', ['ionic'])
+﻿  var light_list = [];
+  var light_state=1;
+  var light_alias="红色";
+  var light_id=2;
+
+  	light_list.push({'light_alias':light_alias, 'light_id':light_id, 'light_state':light_state});
+
+angular.module('ionicApp', ['ionic'])
 
 .controller('MyCtrl', function($scope, $ionicPopup, $ionicListDelegate, $timeout) {
-  $scope.items = ['红色', '绿色', '蓝色'];
-  
+  $scope.items = light_list;
   $scope.doRefresh = function() {
     
     console.log('Refreshing!');
