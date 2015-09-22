@@ -120,8 +120,8 @@ angular.module('ionicApp', ['ionic'])
 				case 0:
 					alert(window.location.search);
 				break;
-				case 1:
-					alert("1");
+				case 1:href
+					alert(window.location.href);
 				break;
 				case 2:
 					alert("2");
