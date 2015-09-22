@@ -5,6 +5,9 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
 		<title>HomeLink</title>
+		<script>
+			var Item_ID;
+		</script>
 		<link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
     <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
 		<script type="text/javascript" src="js/new_file2.js"></script>
@@ -32,7 +35,7 @@
 				
 			</ion-refresher>
 			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">		
-				<ion-item ng-repeat="item in items">					
+				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">					
 					<i ng-if="item.light_state==1" class="button-icon icon ion-ios-lightbulb positive"></i>
 					<i ng-if="item.light_state==0" class="button-icon icon ion-ios-lightbulb dark"></i>
 					{{item.light_alias}}
@@ -47,14 +50,12 @@
 				</ion-item>
 			</ion-list>
 		</ion-content>
-		
- <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
 
+ <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
  <div class="button-bar">
      <a class="button" style="background:red; color:white" id="led_red">Red</a>
      <a class="button" style="background:green; color:white" id="led_green">Green</a>
      <a class="button" style="background:blue; color:white" id="led_blue">Blue</a>
-     <a class="button" style="background:black; color:white" id="switchbtn">TEST</a>
  </div>
 </div>
 <script src="./js/mqttws31.js"></script>
@@ -127,12 +128,17 @@
         // 消息到达
         function onMessageArrived(message) {
         }
-        
-$(document).ready(function(){
-  $("ion-item").click(function(){
-    led_red();
-  });
-});
+        $(document).ready(function(){
+					$(document).on("click",'ion-item',function(){  	
+					  switch(Item_ID)
+					  {
+					  	case 1 : led_red();			break;
+					  	case 2 : led_green();		break;
+					  	case 3 : led_blue();		break;
+					  	default : led_off();		break;
+					  }
+					});
+				});
         function led_red() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
@@ -156,6 +162,13 @@ $(document).ready(function(){
         }
         // document.querySelector('#led_blue').addEventListener('touchstart', led_blue);
         document.querySelector('#led_blue').addEventListener('click', led_blue);
+        
+        
+        function led_off() {
+            var topic = device_id+'/in/write';
+            var commond = '{"rgbled_switch":false}'; 
+            client.publish(topic, commond);
+        }
     }
 
 </script>		

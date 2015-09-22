@@ -3,11 +3,15 @@
   var light_alias="红色";
   var light_id=2;
 
-  	light_list.push({'light_id':light_id, 'light_alias':light_alias, 'light_state':light_state});
+  	//light_list.push({'light_id':light_id, 'light_alias':light_alias, 'light_state':light_state});
+  	light_list.push({'light_id':1, 'light_alias':"红色", 'light_state':1});
+  	light_list.push({'light_id':2, 'light_alias':"绿色", 'light_state':1});
+  	light_list.push({'light_id':3, 'light_alias':"蓝色", 'light_state':1});
 
 angular.module('ionicApp', ['ionic'])
 
 .controller('MyCtrl', function($scope, $ionicPopup, $ionicListDelegate, $timeout) {
+	var addid;
   $scope.items = light_list;
   $scope.doRefresh = function() {
     
@@ -15,7 +19,8 @@ angular.module('ionicApp', ['ionic'])
     $timeout( function() {
       //simulate async response
      // $scope.items.push('New Item ' + Math.floor(Math.random() * 1000) + 4);
-      $scope.items.push({'light_id':1, 'light_alias':'New Item ' + Math.floor(Math.random() * 1000) + 4, 'light_state':0})
+			addid = Math.floor(Math.random() * 1000) + 4;
+      $scope.items.push({'light_id':addid, 'light_alias':'New Item ' + addid, 'light_state':0});
 
       //Stop the ion-refresher from spinning
       $scope.$broadcast('scroll.refreshComplete');
@@ -108,22 +113,6 @@ angular.module('ionicApp', ['ionic'])
 
 
 		$scope.CtrlDevice = function(item) {
-			var index = $scope.items.indexOf(item);
-			//alert("123");
-			switch(index)
-			{
-				case 0:
-					alert(window.location.search);
-				break;
-				case 1:href
-					alert(window.location.href);
-				break;
-				case 2:
-					alert("2");
-				break;
-				default:
-					alert("error");
-				break;
-			}
+			Item_ID = item.light_id;
 		}  
 });
