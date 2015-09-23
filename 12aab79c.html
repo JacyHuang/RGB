@@ -8,8 +8,8 @@
 		<script>
 			var Item_ID;
 		</script>
-		<link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
-    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+		<link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
 		<script type="text/javascript" src="js/new_file2.js"></script>
 	</head>
 
@@ -39,8 +39,8 @@
 					<i ng-if="item.light_state==1" class="button-icon icon ion-ios-lightbulb positive"></i>
 					<i ng-if="item.light_state==0" class="button-icon icon ion-ios-lightbulb dark"></i>
 					{{item.light_alias}}
-					<ion-delete-button class="ion-ios-close-empty positive" ng-click="showPopup_Delete(item)"></ion-delete-button>
-					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
+					<ion-delete-button class="ion-ios-minus" ng-click="showPopup_Delete(item)"></ion-delete-button>
+					<ion-option-button class="ion-ios-drag" ng-click="showPopup_Edit(item)">
 					编辑
 					</ion-option-button>
 					<ion-option-button class="button-assertive">
