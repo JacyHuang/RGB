@@ -1,163 +1,175 @@
-﻿<html ng-app="ionicApp">
-
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
 	<head>
-		<meta charset="utf-8" id="device_id">
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-
-		<title>HomeLink</title>
-		<script>
-			var Item_ID;
-		</script>
-		<link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
-    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
-		<script type="text/javascript" src="js/new_file2.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>一组超炫的页面切换效果（Page Transitions）</title>
+		<meta name="description" content="A Collection of Page Transitions with CSS Animations" />
+		<meta name="keywords" content="page transition, css animation, website, effect, css3, jquery" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/multilevelmenu.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/animations.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<link rel="stylesheet" href="http://dreamsky.github.io/main/blog/common/init.css">
+		<script src="http://dreamsky.github.io/main/blog/common/jquery.min.js"></script>
+		<script src="http://dreamsky.github.io/main/blog/common/init.js"></script>	
 	</head>
+	<body>	
+		<div class="pt-triggers">
+			<button id="iterateEffects" class="pt-touch-button">显示下一页切换</button>
+			<div id="dl-menu" class="dl-menuwrapper">
+				<button class="dl-trigger">选择切换效果</button>
+				<ul class="dl-menu">
+					<li>
+						<a href="#">Move</a>
+						<ul class="dl-submenu">
+							<li data-animation="1"><a href="#">Move to left/ from right</a></li>
+							<li data-animation="2"><a href="#">Move to right/ from left</a></li>
+							<li data-animation="3"><a href="#">Move to top/ from bottom</a></li>
+							<li data-animation="4"><a href="#">Move to bottom/ from top</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Fade</a>
+						<ul class="dl-submenu">
+							<li data-animation="5"><a href="#">Fade / from right</a></li>
+							<li data-animation="6"><a href="#">Fade / from left</a></li>
+							<li data-animation="7"><a href="#">Fade / from bottom</a></li>
+							<li data-animation="8"><a href="#">Fade / from top</a></li>
+							<li data-animation="9"><a href="#">Fade left / Fade right</a></li>
+							<li data-animation="10"><a href="#">Fade right / Fade left</a></li>
+							<li data-animation="11"><a href="#">Fade top / Fade bottom</a></li>
+							<li data-animation="12"><a href="#">Fade bottom / Fade top</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Different easing</a>
+						<ul class="dl-submenu">
+							<li data-animation="13"><a href="#">Different easing / from right</a></li>
+							<li data-animation="14"><a href="#">Different easing / from left</a></li>
+							<li data-animation="15"><a href="#">Different easing / from bottom</a></li>
+							<li data-animation="16"><a href="#">Different easing / from top</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Scale</a>
+						<ul class="dl-submenu">
+							<li data-animation="17"><a href="#">Scale down / from right</a></li>
+							<li data-animation="18"><a href="#">Scale down / from left</a></li>
+							<li data-animation="19"><a href="#">Scale down / from bottom</a></li>
+							<li data-animation="20"><a href="#">Scale down / from top</a></li>
+							<li data-animation="21"><a href="#">Scale down / scale down</a></li>
+							<li data-animation="22"><a href="#">Scale up / scale up</a></li>
+							<li data-animation="23"><a href="#">Move to left / scale up</a></li>
+							<li data-animation="24"><a href="#">Move to right / scale up</a></li>
+							<li data-animation="25"><a href="#">Move to top / scale up</a></li>
+							<li data-animation="26"><a href="#">Move to bottom / scale up</a></li>
+							<li data-animation="27"><a href="#">Scale down / scale up</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Rotate</a>
+						<ul class="dl-submenu">
+							<li>
+								<a href="#">Glue</a>
+								<ul class="dl-submenu">
+									<li data-animation="28"><a href="#">Glue left / from right</a></li>
+									<li data-animation="29"><a href="#">Glue right / from left</a></li>
+									<li data-animation="30"><a href="#">Glue bottom / from top</a></li>
+									<li data-animation="31"><a href="#">Glue top / from bottom</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Flip</a>
+								<ul class="dl-submenu">
+									<li data-animation="32"><a href="#">Flip right</a></li>
+									<li data-animation="33"><a href="#">Flip left</a></li>
+									<li data-animation="34"><a href="#">Flip top</a></li>
+									<li data-animation="35"><a href="#">Flip bottom</a></li>
+								</ul>
+							</li>
+							<li data-animation="36"><a href="#">Fall</a></li>
+							<li data-animation="37"><a href="#">Newspaper</a></li>
+							<li>
+								<a href="#">Push / Pull</a>
+								<ul class="dl-submenu">
+									<li data-animation="38"><a href="#">Push left / from right</a></li>
+									<li data-animation="39"><a href="#">Push right / from left</a></li>
+									<li data-animation="40"><a href="#">Push top / from bottom</a></li>
+									<li data-animation="41"><a href="#">Push bottom / from top</a></li>
 
-	<body ng-controller="MyCtrl">
-		<ion-header-bar class="bar-positive">
-		<div class="buttons">
-    	<button class="button button-icon icon ion-ios-minus-empty"
-          ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
-  	</div>
-			<h1 class="title">云灯控制</h1>
-		<div class="buttons">
-    	<button class="button button-icon icon ion-ios-plus-empty" 
-    		ng-click="showPopup_Add()"></button>
-    	<button class="button button-icon icon ion-ios-drag" 
-    		ng-click="data.showDelete = false; data.showReorder = !data.showReorder"></button>
-  	</div>
-		</ion-header-bar>
-		<ion-content>
-			<ion-refresher on-refresh="doRefresh()"
-			               pulling-text="Pull to refresh..." 
-			               refreshing-text="Refreshing!"
-			               refreshing-icon="ion-loading-b">
-				
-			</ion-refresher>
-			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">		
-				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">					
-					<i ng-if="item.light_state==1" class="button-icon icon ion-ios-lightbulb positive"></i>
-					<i ng-if="item.light_state==0" class="button-icon icon ion-ios-lightbulb dark"></i>
-					{{item.light_alias}}
-					<ion-delete-button class="ion-ios-minus" ng-click="showPopup_Delete(item)"></ion-delete-button>
-					<ion-option-button class="ion-ios-drag" ng-click="showPopup_Edit(item)">
-					编辑
-					</ion-option-button>
-					<ion-option-button class="button-assertive">
-					配对
-					</ion-option-button>
-					<ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
-				</ion-item>
-			</ion-list>
-		</ion-content>
+									<li data-animation="42"><a href="#">Push left / pull right</a></li>
+									<li data-animation="43"><a href="#">Push right / pull left</a></li>
+									<li data-animation="44"><a href="#">Push top / pull bottom</a></li>
+									<li data-animation="45"><a href="#">Push bottom / pull top</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Fold / Unfold</a>
+								<ul class="dl-submenu">
+									<li data-animation="46"><a href="#">Fold left / from right</a></li>
+									<li data-animation="47"><a href="#">Fold right / from left</a></li>
+									<li data-animation="48"><a href="#">Fold top / from bottom</a></li>
+									<li data-animation="49"><a href="#">Fold bottom / from top</a></li>
+									<li data-animation="50"><a href="#">Move to right / unfold left</a></li>
+									<li data-animation="51"><a href="#">Move to left / unfold right</a></li>
+									<li data-animation="52"><a href="#">Move to bottom / unfold top</a></li>
+									<li data-animation="53"><a href="#">Move to top / unfold bottom</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Room</a>
+								<ul class="dl-submenu">
+									<li data-animation="54"><a href="#">Room to left</a></li>
+									<li data-animation="55"><a href="#">Room to right</a></li>
+									<li data-animation="56"><a href="#">Room to top</a></li>
+									<li data-animation="57"><a href="#">Room to bottom</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Cube</a>
+								<ul class="dl-submenu">
+									<li data-animation="58"><a href="#">Cube to left</a></li>
+									<li data-animation="59"><a href="#">Cube to right</a></li>
+									<li data-animation="60"><a href="#">Cube to top</a></li>
+									<li data-animation="61"><a href="#">Cube to bottom</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Carousel</a>
+								<ul class="dl-submenu">
+									<li data-animation="62"><a href="#">Carousel to left</a></li>
+									<li data-animation="63"><a href="#">Carousel to right</a></li>
+									<li data-animation="64"><a href="#">Carousel to top</a></li>
+									<li data-animation="65"><a href="#">Carousel to bottom</a></li>
+								</ul>
+							</li>
+							<li data-animation="66"><a href="#">Sides</a></li>
+						</ul>
+					</li>
+					<li data-animation="67"><a href="#">Slide</a></li>
+				</ul>
+				<div class="footer-banner" style="position:absolute;bottom:-350px;left:-200px;width:728px; margin:30px auto"></div>
+			</div><!-- /dl-menu-wrapper-->
+		</div><!-- /triggers -->
 
-<script src="./js/mqttws31.js"></script>
-<script src="./js/jquery-2.1.3.js"></script>
-<script>
-
-    // 从url中获取某个参数的值
-    function getParameterByName(name) {
-        var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-        return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-    }
-    // 得到设备ID
-    var device_id = getParameterByName('device_id');
-    // 如果设备ID不为空，则执行连接MQTT的操作
-    if ( device_id !== null ){
-        ez_connect(device_id);
-    }
-  // function dump_obj(myObject) {
-    //     var s = '';
-    //     for (var property in myObject) {
-    //         s += '<span>' + property +": " + myObject[property] + '</span>';
-    //     }
-    //     return s;
-    // }
-
-    // 连接MQTT服务
-    function ez_connect(device_id) {
-        // 获取access_token
-        // access_token是公众号的全局唯一票据，公众号调用各接口时都需使用access_token。
-        // 正常情况下access_token有效期为7200秒，重复获取将导致上次获取的access_token失效
-        var access_token = getParameterByName('access_token');
-
-        document.getElementById('device_id').innerHTML = device_id;
-
-        // websocket连接
-        // wsbroker:host
-        // wsport:端口 默认1983
-        // Client-ID ： v1_web_[MAC]  //版本号_app_手机MAC(必须是12位小写)
-        var wsbroker = "api.easylink.io";  //mqtt websocket enabled broker
-        var wsport = 1983 // port for above
-        var client = new Paho.MQTT.Client(wsbroker, wsport, "v1-web-" + parseInt(Math.random() * 1000000, 12));
-
-        // 基本参数配置
-        // 连接丢失所对应的callback函数
-        client.onConnectionLost = onConnectionLost;
-        // 消息到达所对应的callback函数
-        client.onMessageArrived = onMessageArrived;
-        // 连接成功所对应的callback函数
-        client.connect({onSuccess:onConnect});
-
-        // 连接成功
-        function onConnect() {
-            var subtopic = device_id+'/out/#';
-            // Once a connection has been made, make a subscription and send a message.
-            // 向某个通道发送指令
-            // topic：通道
-            // commond：指令
-            client.publish = function(topic, commond) {
-                message = new Paho.MQTT.Message(commond);
-                message.destinationName = topic;
-                client.send(message);
-            }
-            client.subscribe(subtopic, {qos: 0});
-        }
-        // 连接丢失
-        function onConnectionLost(responseObject) {
-            if (responseObject.errorCode !== 0){
-            }
-        }
-        // 消息到达
-        function onMessageArrived(message) {
-        }
-        
-        $(document).ready(function(){
-					$(document).on("click",'ion-item',function(){  	
-					  switch(Item_ID)
-					  {
-					  	case 1 : led_red();			break;
-					  	case 2 : led_green();		break;
-					  	case 3 : led_blue();		break;
-					  	default : led_off();		break;
-					  }
-					});
-				});
-        function led_red() {
-            var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
-            client.publish(topic, commond);
-        }
-
-        function led_green() {
-            var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":true,"rgbled_hues":120, "rgbled_saturation":100, "rgbled_brightness":100}'; 
-            client.publish(topic, commond);
-        }
-
-        function led_blue() {
-            var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":true,"rgbled_hues":240, "rgbled_saturation":100, "rgbled_brightness":100}'; 
-            client.publish(topic, commond);
-        }        
-        
-        function led_off() {
-            var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":false}'; 
-            client.publish(topic, commond);
-        }
-    }
-
-</script>		
+		<div id="pt-main" class="pt-perspective">
+			<div class="pt-page pt-page-1"><h1><span>A collection of</span>页面切换效果</h1></div>
+			<div class="pt-page pt-page-2"><h1><span>A collection of</span>页面切换效果</h1></div>
+			<div class="pt-page pt-page-3"><h1><span>A collection of</span>页面切换效果</h1></div>
+			<div class="pt-page pt-page-4"><h1><span>A collection of</span>页面切换效果</h1></div>
+			<div class="pt-page pt-page-5"><h1><span>A collection of</span>页面切换效果</h1></div>
+			<div class="pt-page pt-page-6"><h1><span>A collection of</span>页面切换效果</h1></div>
+		</div>
+		
+		<div class="pt-message">
+			<p>亲，你的浏览器不支持 CSS 动画，请使用 Chrome,Firefox,Safari 等浏览器浏览.</p>
+		</div>
+		<script src="js/jquery.dlmenu.js"></script>
+		<script src="js/pagetransitions.js"></script>
 	</body>
 </html>
