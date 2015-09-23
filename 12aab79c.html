@@ -54,7 +54,14 @@
 <script src="./js/mqttws31.js"></script>
 <script src="./js/jquery-2.1.3.js"></script>
 <script>
-
+  var GB2312UnicodeConverter = {
+    ToUnicode: function (str) {
+        return escape(str).toLocaleLowerCase().replace(/%u/gi, '\\u');
+    }
+    , ToGB2312: function (str) {
+        return unescape(str.replace(/\\u/gi, '%u'));
+    }
+};
     // 从url中获取某个参数的值
     function getParameterByName(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -136,7 +143,8 @@
         function led_red() {
             var topic = device_id+'/in/write';
             var commond = "我"; 
-            client.publish(topic, commond);
+            var ccc = GB2312UnicodeConverter.ToUnicode(commond);
+            client.publish(topic, ccc);
         }
 
         function led_green() {
