@@ -112,7 +112,7 @@
                 client.send(message);
             }
             client.subscribe(subtopic, {qos: 0});
-            alert("adfa");
+            led_red();
         }
         // 连接丢失
         function onConnectionLost(responseObject) {
