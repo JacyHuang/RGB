@@ -10,7 +10,7 @@
 		</script>
   <link href="http://api.easylink.io/bower_components/ionic/css/ionic.min.css" rel="stylesheet">
   <script src="http://api.easylink.io/bower_components/ionic/js/ionic.bundle.min.js"></script>
-		<script type="text/javascript" src="js/new_file2.js"></script>
+	<script type="text/javascript" src="js/new_file2.js"></script>
 	</head>
 
 	<body ng-controller="MyCtrl">
@@ -54,7 +54,9 @@
 <script src="./js/mqttws31.js"></script>
 <script src="./js/jquery-2.1.3.js"></script>
 <script>
-  var GB2312UnicodeConverter = {
+
+
+var GB2312UnicodeConverter = {
     ToUnicode: function (str) {
         return escape(str).toLocaleLowerCase().replace(/%u/gi, '\\u');
     }
@@ -62,6 +64,7 @@
         return unescape(str.replace(/\\u/gi, '%u'));
     }
 };
+
     // 从url中获取某个参数的值
     function getParameterByName(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -142,9 +145,11 @@
 				});
         function led_red() {
             var topic = device_id+'/in/write';
-            var commond = "我"; 
-            var ccc = GB2312UnicodeConverter.ToUnicode(commond);
-            client.publish(topic, ccc);
+            //var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
+            var str = '我';
+						
+						unicode = GB2312UnicodeConverter.ToUnicode(str);
+            client.publish(topic, unicode);
         }
 
         function led_green() {
