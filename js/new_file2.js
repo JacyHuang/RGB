@@ -76,6 +76,7 @@ angular.module('ionicApp', ['ionic'])
             } else {
 									alias     : $scope.data.alias
                   $scope.items[index].light_alias = $scope.data.alias;
+                  
                   $ionicListDelegate.closeOptionButtons();  
               }
             }
@@ -128,5 +129,12 @@ angular.module('ionicApp', ['ionic'])
 
 		$scope.CtrlDevice = function(item) {
 			Item_ID = item.light_id;
+			item.light_state = !item.light_state;
+		}  
+		
+		
+		$scope.MatchDevice = function(item) {
+			Item_ID = item.light_id;
+			myFun();
 		}  
 });

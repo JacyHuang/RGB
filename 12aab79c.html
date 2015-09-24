@@ -43,7 +43,7 @@
 					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
 					编辑
 					</ion-option-button>
-					<ion-option-button class="button-assertive">
+					<ion-option-button class="button-assertive" ng-click="MatchDevice(item)">
 					配对
 					</ion-option-button>
 					<ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
@@ -54,7 +54,6 @@
 <script src="./js/mqttws31.js"></script>
 <script src="./js/jquery-2.1.3.js"></script>
 <script>
-
 
 		var GB2312UnicodeConverter = {
 	    ToUnicode: function (str) {
@@ -132,17 +131,23 @@
         function onMessageArrived(message) {
         }
         
-        $(document).ready(function(){
-					$(document).on("click",'ion-item',function(){  	
-					  switch(Item_ID)
-					  {
-					  	case 1 : led_red();			break;
-					  	case 2 : led_green();		break;
-					  	case 3 : led_blue();		break;
-					  	default : led_off();		break;
-					  }
-					});
-				});
+//        $(document).ready(function(){
+//					$(document).on("click",'ion-item',function(){  	
+//					  switch(Item_ID)
+//					  {
+//					  	case 1 : led_red();			break;
+//					  	case 2 : led_green();		break;
+//					  	case 3 : led_blue();		break;
+//					  	default : led_off();		break;
+//					  }
+//					});
+//				});
+
+		function myFun() {
+
+
+alert(1);
+		}
         function led_red() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
