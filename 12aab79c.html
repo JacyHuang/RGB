@@ -71,6 +71,7 @@
     }
     // 得到设备ID
     var device_id = getParameterByName('device_id');
+    var client;
     // 如果设备ID不为空，则执行连接MQTT的操作
     if ( device_id !== null ){
         ez_connect(device_id);
@@ -98,7 +99,7 @@
         // Client-ID ： v1_web_[MAC]  //版本号_app_手机MAC(必须是12位小写)
         var wsbroker = "api.easylink.io";  //mqtt websocket enabled broker
         var wsport = 1983 // port for above
-        var client = new Paho.MQTT.Client(wsbroker, wsport, "v1-web-" + parseInt(Math.random() * 1000000, 12));
+        client = new Paho.MQTT.Client(wsbroker, wsport, "v1-web-" + parseInt(Math.random() * 1000000, 12));
 
         // 基本参数配置
         // 连接丢失所对应的callback函数
