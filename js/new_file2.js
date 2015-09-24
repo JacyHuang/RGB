@@ -130,6 +130,6 @@ angular.module('ionicApp', ['ionic'])
 		
 		
 		$scope.MatchDevice = function(item) {
-			SendBufToDevice("123");
+			SendBufToDevice("item" + item.light_id + "," + item.light_alias);
 		}  
 });
