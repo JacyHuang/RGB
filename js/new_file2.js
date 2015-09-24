@@ -62,7 +62,7 @@ angular.module('ionicApp', ['ionic'])
 
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
-          template: '<input type="text" ng-model="data.alias">',
+          template: '<input type="text" ng-model="data.alias" maxlength="20">',
           title: '',
           subTitle: '修改名称',
           scope: $scope,
@@ -96,7 +96,7 @@ angular.module('ionicApp', ['ionic'])
 
       // An elaborate, custom popup
       var myPopup = $ionicPopup.show({
-        template: '<input type="text" ng-model="data.alias">',
+        template: '<input type="text" ng-model="data.alias" maxlength="20">',
         title: '',
         subTitle: '添加云灯',
         scope: $scope,

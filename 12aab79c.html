@@ -36,9 +36,9 @@
 			</ion-refresher>
 			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">		
 				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">					
-					<i ng-if="item.light_state==1" class="button-icon icon ion-ios-lightbulb positive"></i>
-					<i ng-if="item.light_state==0" class="button-icon icon ion-ios-lightbulb dark"></i>
-					{{item.light_alias}}
+					<i ng-if="item.light_state==1" class="button-icon icon ion-ios-lightbulb positive">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
+					<i ng-if="item.light_state==0" class="button-icon icon ion-ios-lightbulb dark">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
+					
 					<ion-delete-button class="ion-ios-minus" ng-click="showPopup_Delete(item)"></ion-delete-button>
 					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
 					编辑
@@ -56,14 +56,14 @@
 <script>
 
 
-var GB2312UnicodeConverter = {
-    ToUnicode: function (str) {
-        return escape(str).toLocaleLowerCase().replace(/%u/gi, '\\u');
-    }
-    , ToGB2312: function (str) {
-        return unescape(str.replace(/\\u/gi, '%u'));
-    }
-};
+		var GB2312UnicodeConverter = {
+	    ToUnicode: function (str) {
+	        return escape(str).toLocaleLowerCase().replace(/%u/gi, '\\u');
+	    }
+	    , ToGB2312: function (str) {
+	        return unescape(str.replace(/\\u/gi, '%u'));
+	    }
+		};
 
     // 从url中获取某个参数的值
     function getParameterByName(name) {
@@ -145,11 +145,8 @@ var GB2312UnicodeConverter = {
 				});
         function led_red() {
             var topic = device_id+'/in/write';
-            //var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
-            var str = '我';
-						
-						unicode = GB2312UnicodeConverter.ToUnicode(str);
-            client.publish(topic, unicode);
+            var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
+            client.publish(topic, commond);
         }
 
         function led_green() {
