@@ -152,6 +152,10 @@
             var commond = '{"rgbled_switch":false}'; 
             client.publish(topic, commond);
         }
+        function SendBufToDevice(tmpbuf) {
+            var topic = device_id+'/in/write';
+            client.publish(topic, tmpbuf);
+        }
 //    }
 
 </script>		
