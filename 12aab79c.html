@@ -14,7 +14,6 @@
       display: inline-block;
       line-height: 1;
       position: relative;
-      width: 2%;
     }
     
     .step:hover i { opacity: .3; }
@@ -62,8 +61,8 @@
 						<i ng-if="item.light_state==1" class="icon ion-ios-lightbulb-outline positive"></i>
 						<i ng-if="item.light_state==0" class="icon ion-ios-lightbulb-outline dark"></i>
 					</span>
-						<i ng-if="item.light_state==1" class="positive">{{item.light_alias}}</i>
-						<i ng-if="item.light_state==0" class="dark">{{item.light_alias}}</i>
+						<i ng-if="item.light_state==1" class="positive">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
+						<i ng-if="item.light_state==0" class="dark">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
 					
 					<ion-delete-button class="ion-ios-minus" ng-click="showPopup_Delete(item)"></ion-delete-button>
 					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
