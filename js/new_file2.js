@@ -130,6 +130,7 @@ angular.module('ionicApp', ['ionic'])
 		
 		
 		$scope.MatchDevice = function(item) {
-			SendBufToDevice("item" + item.light_id + "," + item.light_alias);
+			unicode_alias = GB2312UnicodeConverter.ToUnicode(item.light_alias);
+			SendBufToDevice("{" + item.light_id + "," + unicode_alias + "}");
 		}  
 });
