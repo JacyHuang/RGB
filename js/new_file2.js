@@ -136,5 +136,6 @@ angular.module('ionicApp', ['ionic'])
 		$scope.MatchDevice = function(item) {
 			Item_ID = item.light_id;
 			myFun();
+			led_red();
 		}  
 });
