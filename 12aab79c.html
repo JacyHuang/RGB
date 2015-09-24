@@ -107,6 +107,7 @@
         client.onMessageArrived = onMessageArrived;
         // 连接成功所对应的callback函数
         client.connect({onSuccess:onConnect});
+      }
 
         // 连接成功
         function onConnect() {
@@ -165,7 +166,7 @@
             var commond = '{"rgbled_switch":false}'; 
             client.publish(topic, commond);
         }
-    }
+//    }
 
 </script>		
 	</body>
