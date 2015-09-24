@@ -2,20 +2,6 @@
   var light_state=1;
   var light_alias="红色";
   var light_id=2;
-  
-//  var GB2312UnicodeConverter = {
-//    ToUnicode: function (str) {
-//        return escape(str).toLocaleLowerCase().replace(/%u/gi, '\\u');
-//    }
-//    , ToGB2312: function (str) {
-//        return unescape(str.replace(/\\u/gi, '%u'));
-//    }
-//};
-//
-//        	            var hexCode = '6211';
-//        var code = parseInt(hexCode, 16);
-//        var a = String.fromCharCode(code);
-//        alert(a);
 
   	//light_list.push({'light_id':light_id, 'light_alias':light_alias, 'light_state':light_state});
   	light_list.push({'light_id':1, 'light_alias':"红色", 'light_state':1});
@@ -29,7 +15,6 @@ angular.module('ionicApp', ['ionic'])
   $scope.items = light_list;
   $scope.doRefresh = function() {
     
-    console.log('Refreshing!');
     $timeout( function() {
       //simulate async response
      // $scope.items.push('New Item ' + Math.floor(Math.random() * 1000) + 4);
