@@ -127,14 +127,17 @@ angular.module('ionicApp', ['ionic'])
 		}		
 
 
-		$scope.CtrlDevice = function(item) {
-			Item_ID = item.light_id;
-			item.light_state = !item.light_state;
+		$scope.CtrlDevice = function(item) {			  	
+		  switch(item.light_id)
+		  {
+		  	case 1 : led_red();			break;
+		  	case 2 : led_green();		break;
+		  	case 3 : led_blue();		break;
+		  	default : led_off();		break;
+		  }
 		}  
 		
 		
 		$scope.MatchDevice = function(item) {
-			Item_ID = item.light_id;
-			led_red();
 		}  
 });
