@@ -33,8 +33,8 @@
 			</ion-refresher>
 			<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">		
 				<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">					
-					<i ng-if="item.light_state==1" class="button-icon icon ion-ios-lightbulb positive">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
-					<i ng-if="item.light_state==0" class="button-icon icon ion-ios-lightbulb dark">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
+					<i ng-if="item.light_state==1" class="positive"><img src="./img/on.png" width="32" height="32">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
+					<i ng-if="item.light_state==0" class="dark"><img src="./img/off.png" width="32" height="32">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
 					
 					<ion-delete-button class="ion-ios-minus" ng-click="showPopup_Delete(item)"></ion-delete-button>
 					<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
