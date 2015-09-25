@@ -9,15 +9,15 @@
 }
 /*背景*/
 .login {
-	background: url(../image/login.png) 50% 0 no-repeat;
+	background: url(./image/login.png) 50% 0 no-repeat;
 	background-size: cover;
 }
 .register {
-	background: url(../image/login.png) 50% 0 no-repeat;
+	background: url(./image/login.png) 50% 0 no-repeat;
 	background-size: cover;
 }
 .nextstep {
-	background: url(../image/login.png) 50% 0 no-repeat;
+	background: url(./image/login.png) 50% 0 no-repeat;
 	background-size: cover;
 }
 .content {
@@ -37,7 +37,7 @@
 	font-size: 16px;
 	margin-top: 5px;
 	/*padding-left: 5px;*/
-	border-radius: 1px;
+	border-radius: 0px;
 }
 .phone {
 	margin-bottom: 30px;
@@ -86,48 +86,4 @@
 .toregistbtn span a {
 	color: #3DB481;
 	font-size: 15px;
-}
-/*注册页面*/
-.registcls {
-	margin: 39px 30px 0px 30px;
-	padding: 0px 19px;
-}
-.registbtn {
-	height: 35px;
-	line-height: 35px;
-	border: 1px solid #FEFEFE;
-	text-align: center;
-	border-radius: 20px;
-}
-.registbtn span a {
-	color: #FEFEFE;
-}
-.rightbox {
-	width: 85%;
-	float: right;
-}
-.sendverify {
-	height: 30px;
-	line-height: 30px;
-	border-radius: 20px;
-	text-align: center;
-	/*background: -webkit-linear-gradient(left, #3ee8db,#b89bd7);*/
-	background-color: #3DB481;
-	background-repeat: repeat;
-	width: 30%;
-}
-.sendverifyhs {
-	height: 30px;
-	line-height: 30px;
-	border-radius: 20px;
-	text-align: center;
-	background: #CCCCCC;
-	width: 30%;
-}
-.styl {
-	border-bottom: 1px solid #3DB481;
-	width: 65%;
-	color: #3DB481;
-	font-size: 16px;
-	border-radius: 1px;
 }

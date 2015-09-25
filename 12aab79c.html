@@ -17,10 +17,11 @@
 	
   <style>
   	
-    #debug {
-        margin-top:60px;
-    }
 
+		#page-1
+		{
+			margin-top:60px;
+		}
     .step {
       display: inline-block;
       line-height: 1;
@@ -43,24 +44,21 @@
   </style>
 	</head>
 
-	<body ng-controller="MyCtrl">
-		<div id="debug"></div>
+	<body ng-controller="MyCtrl" style="background: url(./image/login.png) 50% 0 no-repeat;background-size: cover;">
+	
 		<div id="pagewrap" class="pagewrap">
 		
 			<div class="container show" id="page-1">
 
 				<section>
-
 					<div class="login" data-role="page" data-theme="f" id="loginpage">
 						<div class="logocls" align="center">
 							<img src="./image/login-micokit.svg" />
 						</div>
 						<br/>
 						<div class="content">
-							<div class="psw ">
-								<img class="pi"  src="./image/account-cd.svg"/>
-								<input class="styled" type="password" data-theme="f" data-role="none" placeholder="请输入六位密码" id="login_psw">
-							</div>
+							<img class="pi"  src="./image/account-cd.svg"/>
+							<input class="styled" type="password" style="border:0;border-bottom: 1px solid #3DB481;background:transparent;" placeholder="请输入六位密码" id="login_psw">
 							<div class="subbutton" id="loginbtn">
 								<span><a class="pageload-link" href="#page-2">登录</a></span>
 							</div>
@@ -101,7 +99,7 @@
 							
 						</ion-refresher>
 						<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">		
-							<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">					
+							<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)" style="background:transparent">					
 								<span class="step size-32">
 									<i ng-if="item.light_state==1" class="icon ion-ios-lightbulb-outline positive"></i>
 									<i ng-if="item.light_state==0" class="icon ion-ios-lightbulb-outline dark"></i>
