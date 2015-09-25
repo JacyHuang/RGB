@@ -82,7 +82,42 @@
               }
               ]
             });
-};
+			};
+			$scope.UnbindUser = function(item) {
+				          // An elaborate, custom popup
+          var myPopup = $ionicPopup.show({
+            title: '',
+            subTitle: '解除绑定',
+            scope: $scope,
+            buttons: [
+            { text: 'Cancel' },
+            {
+              text: '<b>Save</b>',
+              type: 'button-positive',
+              onTap: function(e) {
+                  $http.post(
+                    'http://api.easylink.io/v1/device/wechat/unbind',
+                    {
+                      device_id : item.device_id,
+                      user_id     : 'HJ-Chao'
+                    }, {
+                      headers : {
+                        'AUTHORIZATION' : "token " + access_token
+                      }
+                    } 
+                    ).success(function(data) {
+                      $scope.items[index].alias = $scope.data.alias;
+                      $ionicListDelegate.closeOptionButtons();
+
+                    }).error(function(data){
+                      alert(data.error.message);
+                      return; 
+                    });
+                }
+              }
+              ]
+            });
+			}
 
 $scope.reloadPage = function() {
  $http.post(
@@ -123,9 +158,13 @@ item="item"
 href="{{ item.product_id }}.html?device_id={{ item.device_id }}&access_token={{ access_token }}&alias={{ item.alias }}" class="item-remove-animate">
 <i ng-if="item.state==1" class="icon ion-record positive" ></i><i ng-if="item.state==0" class="icon ion-record assertive" ></i> {{ item.alias }}<br>
 <span class="item-note">ID : {{ item.device_id }}</span>
-<ion-option-button class="button-assertive"
+<ion-option-button class="button-dark"
 ng-click="showPopup(item)">
-Edit
+编缉
+</ion-option-button>
+<ion-option-button class="button-assertive"
+ng-click="UnbindUser(item)">
+解绑
 </ion-option-button>
 </ion-item>
 </ion-list>
