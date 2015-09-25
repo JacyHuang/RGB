@@ -99,12 +99,8 @@
                     'http://api.easylink.io/v1/device/wechat/unbind',
                     {
                       device_id : item.device_id,
-                      user_id     : "dfe92aac-221c-4a67-9190-ca8b6b9498a5"
-                    }, {
-                      headers : {
-                        'AUTHORIZATION' : "token " + access_token
-                      }
-                    } 
+                      user_id     : 'dfe92aac-221c-4a67-9190-ca8b6b9498a5'
+                    }, 
                     ).success(function(data) {
                       $scope.items[index].alias = $scope.data.alias;
                       $ionicListDelegate.closeOptionButtons();
