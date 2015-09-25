@@ -45,25 +45,32 @@
 			<div class="container show" id="page-1">
 
 				<section class="columns clearfix">
+					<ion-header-bar class="bar-positive">
+							<h1 class="title">登录</h1>
+					</ion-header-bar>
+					<ion-content>
+					<br/><br/>
 					<div class="login" data-role="page" data-theme="f" id="loginpage">
-			<div class="logocls" align="center">
-				<img src="./image/login-micokit.svg" />
-			</div>
-			<div class="content">
-				<div class="psw ">
-					<img class="pi"  src="./image/account-cd.svg"/>
-					<input class="styled" type="password" data-theme="f" data-role="none" placeholder="请输入六位密码" id="login_psw">
-				</div>
-				<div class="subbutton" id="loginbtn">
-					<span><a href="#">登录</a></span>
-				</div>
-			</div>
-			<div class="toregistcls">
-				<div class="toregistbtn" onclick="changpswtag('registerpage')">
-					<span ><a href="#" data-transition="none">修改密码</a></span>
-				</div>
-			</div>
-		</div>
+						<div class="logocls" align="center">
+							<img src="./image/login-micokit.svg" />
+						</div>
+						<br/>
+						<div class="content">
+							<div class="psw ">
+								<img class="pi"  src="./image/account-cd.svg"/>
+								<input class="styled" type="password" data-theme="f" data-role="none" placeholder="请输入六位密码" id="login_psw">
+							</div>
+							<div class="subbutton" id="loginbtn">
+								<span><a href="#">登录</a></span>
+							</div>
+						</div>
+						<br/><br/>
+						<div class="toregistcls">
+							<div class="toregistbtn" onclick="changpswtag('registerpage')">
+								<span ><a href="#" data-transition="none">修改密码</a></span>
+							</div>
+						</div>
+					</div>
 					<div class="column">
 						<p></p>
 						<p><a class="pageload-link" href="#page-2">点击预览效果</a></p>
@@ -71,7 +78,7 @@
 				</section>
 			<div class="footer-banner" style="width:728px; margin:30px auto"></div>
 			</div><!-- /container -->
-
+			</ion-content>
 			<!-- The new page dummy; this would be dynamically loaded content -->
 			<div class="container" id="page-2">
 				<section>		
