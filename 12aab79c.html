@@ -22,13 +22,6 @@
 		{
 			margin-top:65px;
 		}
-    .step {
-      display: inline-block;
-      line-height: 1;
-      position: relative;
-    }
-    
-    .step:hover i { opacity: .3; }
     
     .size-12 { font-size: 12px; }
     .size-14 { font-size: 14px; }
@@ -98,9 +91,9 @@
 						               refreshing-icon="ion-loading-b">
 							
 						</ion-refresher>
-						<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">		
-							<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)" style="background:transparent">					
-								<span class="step size-32">
+						<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">	
+							<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">					
+								<span class="size-32">
 									<i ng-if="item.light_state==1" class="icon ion-ios-lightbulb-outline positive"></i>
 									<i ng-if="item.light_state==0" class="icon ion-ios-lightbulb-outline dark"></i>
 								</span>

@@ -11,11 +11,12 @@
 angular.module('ionicApp', ['ionic'])
 
 .controller('MyCtrl', function($scope, $ionicPopup, $ionicListDelegate, $timeout) {
-	var addid;
+
   $scope.items = light_list;
-  $scope.doRefresh = function() {
-    
+  
+    $scope.doRefresh = function() {   	 
     $timeout( function() {
+    		var addid;
       //simulate async response
      // $scope.items.push('New Item ' + Math.floor(Math.random() * 1000) + 4);
 			addid = Math.floor(Math.random() * 1000) + 4;
