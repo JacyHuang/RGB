@@ -52,17 +52,17 @@
 						<div class="content">							
 							<div style="margin-bottom: 30px;	height: 35px;	line-height: 35px;" >
 								<img style="width: 28px;"  src="./image/account-tx.svg"/>
-								<input class="styled" type="text" style="border:0;border-bottom: 1px solid #3DB481;background:transparent;" data-theme="f" data-role="none" placeholder="手机号码" id="login_phone">
+								<input class="styled" type="text" style="border:0;border-bottom: 1px solid #3DB481;background:transparent;color:#3DB481;" data-theme="f" data-role="none" placeholder="手机号码" id="login_phone">
 							</div>
 							<div style="margin-bottom: 30px;	height: 35px;	line-height: 35px;">
 								<img style="width: 28px;"  src="./image/account-cd.svg"/>
-								<input class="styled" type="password" style="border:0;border-bottom: 1px solid #3DB481;background:transparent;" placeholder="请输入六位密码" id="login_psw">
+								<input class="styled" type="password" style="border:0;border-bottom: 1px solid #3DB481;background:transparent;color:#3DB481;" placeholder="请输入六位密码" id="login_psw">
 							</div>
-							<div class="subbutton" id="loginbtn">
-								<span><a class="pageload-link" href="#page-2">登录</a></span>
+							<div class="subbutton pageload-link" id="loginbtn">
+								<span><a href="#page-2">登录</a></span>
 							</div>
 						</div>
-						<br/><br/>
+		
 						<div class="toregistcls">
 							<div class="toregistbtn" onclick="changpswtag('registerpage')">
 								<span ><a href="#" data-transition="none">修改密码</a></span>
@@ -245,7 +245,7 @@
 					var pageWrap = document.getElementById( 'pagewrap' ),
 						pages = [].slice.call( pageWrap.querySelectorAll( 'div.container' ) ),
 						currentPage = 0,
-						triggerLoading = [].slice.call( pageWrap.querySelectorAll( 'a.pageload-link' ) ),
+						triggerLoading = [].slice.call( pageWrap.querySelectorAll( 'div.subbutton' ) ),
 						loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 100 } );
 	
 					function init() {
