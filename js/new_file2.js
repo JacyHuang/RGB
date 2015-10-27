@@ -120,13 +120,7 @@ angular.module('ionicApp', ['ionic'])
 				led_off();
 				return;
 			}		  	
-		  switch(item.light_id)
-		  {
-		  	case 1 : led_red();			break;
-		  	case 2 : led_green();		break;
-		  	case 3 : led_blue();		break;
-		  	default : led_off();		break;
-		  }
+			light_ctrl(item.light_id, item.light_state);
 		}  
 		
 		

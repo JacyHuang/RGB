@@ -210,6 +210,12 @@
 	        function onMessageArrived(message) {
 	        }
 	        
+	        function light_ctrl(light_id, light_flag){	        	
+	            var topic = device_id+'/in/write';
+	            var commond = "["+light_id+","+light_flag+"]";
+	            client.publish(topic, commond);
+	        }
+	        
 	        function led_red() {
 	            var topic = device_id+'/in/write';
 	            var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
@@ -234,6 +240,11 @@
 	            client.publish(topic, commond);
 	        }
 	        function SendBufToDevice(tmpbuf) {
+	            var topic = device_id+'/in/write';
+	            client.publish(topic, tmpbuf);
+	        }
+	        
+	        function RevBufFromDevice(tmpbuf) {
 	            var topic = device_id+'/in/write';
 	            client.publish(topic, tmpbuf);
 	        }
