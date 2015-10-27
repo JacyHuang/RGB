@@ -114,12 +114,7 @@ angular.module('ionicApp', ['ionic'])
 
 
 		$scope.CtrlDevice = function(item) {	
-			item.light_state = !item.light_state;
-			if(item.light_state == 0)
-			{
-				led_off();
-				return;
-			}		  	
+			item.light_state = !item.light_state;		  	
 			light_ctrl(item.light_id, item.light_state);
 		}  
 		
