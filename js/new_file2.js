@@ -4,9 +4,9 @@
   var light_id=2;
 
   	//light_list.push({'light_id':light_id, 'light_alias':light_alias, 'light_state':light_state});
-  	light_list.push({'light_id':1, 'light_alias':"红色", 'light_state':1});
-  	light_list.push({'light_id':2, 'light_alias':"绿色", 'light_state':1});
-  	light_list.push({'light_id':3, 'light_alias':"蓝色", 'light_state':1});
+  	light_list.push({'light_id':1, 'light_alias':"红色", 'light_state':0});
+  	light_list.push({'light_id':2, 'light_alias':"绿色", 'light_state':0});
+  	light_list.push({'light_id':3, 'light_alias':"蓝色", 'light_state':0});
 
 angular.module('ionicApp', ['ionic'])
 
@@ -76,8 +76,8 @@ angular.module('ionicApp', ['ionic'])
           }
           ]
         });  
-		}
-		
+			}
+			
 		$scope.showPopup_Add = function() {
     $scope.data = {}
 
