@@ -228,6 +228,7 @@
 	    
 	    // 得到设备ID
 	    var device_id = getParameterByName('device_id');
+	    var device_alias = getParameterByName('alias');
 	    var client;
 	    // 如果设备ID不为空，则执行连接MQTT的操作
 	    if ( device_id !== null ){
@@ -427,19 +428,18 @@
 			
 			function DelCookie()
 			{
-				DeleteCookie(document.getElementById("login_user").value);
+				DeleteCookie(device_id);
 				document.getElementById("login_psw").value = '';
 			}
 			function remember()
 			{
-				SetCookie(document.getElementById("login_user").value,document.getElementById("login_psw").value);
+				SetCookie(device_id,document.getElementById("login_psw").value);
 			}
-			document.getElementById("login_user").value = device_id;
-				 var PassWord=GetCookie(document.getElementById("login_user").value);
+			document.getElementById("login_user").value = device_alias;
+				 var PassWord=GetCookie(device_id);
 				 if(PassWord!=null)
 				 {
 						document.getElementById("login_psw").value = PassWord;
-						document.getElementById("login_user").value = device_id;
 					}
 				
 		</script>		
