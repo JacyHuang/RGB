@@ -205,9 +205,7 @@
 			}
 			function remember()
 			{
-				val p = document.getElementById("login_psw").value;
-				if(p != NULL)
-					SetCookie(document.getElementById("login_user").value,document.getElementById("login_psw").value);
+				SetCookie(document.getElementById("login_user").value,document.getElementById("login_psw").value);
 			}
 				 var PassWord=GetCookie(document.getElementById("login_user").value);
 				 if(PassWord!=null)
