@@ -181,7 +181,32 @@
 		$('.logocls').css('height', logoclsH);
 		$('.logocls img').css('height', 0.5 * logoclsH).css('margin-top', 0.3 * logoclsH);
 		$('.content').css('height', 0.5 * screenH);
-	
+		//	原始页面
+		var strDMlogin;
+		//倒计时标记
+		var sendSmsTag = 0;
+		//倒计时时间
+		var timecd = 0;
+		//倒计时循环对接
+		var ctrlSendSms;
+		apiready = function() {
+			api.removeLaunchView();
+			var header = $api.byId('topbar');
+			$api.fixIos7Bar(header);
+			strDMlogin = api.systemType;
+			var hg = ($(window).height() - $('.content').outerHeight()) / 2;
+			// alert(hg);
+			$('.content').css({
+				// position : 'absolute',
+				top : hg
+			});
+			api.addEventListener({
+				name : "keyback"
+			}, function(ret, err) {
+				//当点击确定时 返回 true
+				closeApp();
+			});
+		};
 	
 		
 		// 判断是忘记密码还是新用户注册
