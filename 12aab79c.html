@@ -51,7 +51,7 @@
 						<div class="content">							
 							<div style="margin-bottom: 30px;	height: 35px;	line-height: 35px;" >
 								<img style="width: 28px;"  src="./image/account-tx.svg"/>
-								<input class="styled" type="text" onblur="showpassword()" maxlength="20" style="border:0;border-bottom: 1px solid #3DB481;background:transparent;color:#3DB481;" data-theme="f" data-role="none" placeholder="请输入用户名" value="guest" id="login_user">
+								<input class="styled" type="text" onblur="showpassword()" maxlength="20" style="border:0;border-bottom: 1px solid #3DB481;background:transparent;color:#3DB481;" data-theme="f" data-role="none" placeholder="请输入用户名" id="login_user">
 							</div>
 							<div style="margin-bottom: 30px;	height: 35px;	line-height: 35px;">
 								<img style="width: 28px;"  src="./image/account-cd.svg"/>
@@ -161,57 +161,6 @@
 		<script src="js/svgLoader.js"></script>
 		<script src="./js/mqttws31.js"></script>
 		<script>
-			function GetCookie (name) 
-			{ 
-				var arg = name + "="; 
-				var alen = arg.length; 
-				var clen = window.document.cookie.length; 
-				var i = 0; 
-				while (i < clen) 
-				{ 
-					var j = i + alen; 
-					if (window.document.cookie.substring(i, j) == arg) return getCookieVal (j); 
-					i = window.document.cookie.indexOf(" ", i) + 1; 
-					if (i == 0)
-						break; 
-				} 
-				return null;
-			}
-			function getCookieVal (offset)
-			{ 
-				var endstr = window.document.cookie.indexOf (";", offset); 
-				if (endstr == -1)
-					endstr = window.document.cookie.length; 
-				return unescape(window.document.cookie.substring(offset, endstr));
-			}
-			function SetCookie (name, value)
-			{ 
-				var exp = new Date(); 
-				exp.setTime(exp.getTime() + (30*24*60*60*1000));
-				window.document.cookie = name + "=" + escape (value) + "; expires=" + exp.toGMTString()+";path=/";
-			}
-			function DeleteCookie (name)
-			{ 
-				var exp = new Date(); 
-				exp.setTime (exp.getTime() - 100); 
-				var cval = GetCookie (name); 
-				window.document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString()+";path=/";
-			}
-			
-			function DelCookie()
-			{
-				DeleteCookie(document.getElementById("login_user").value);
-				document.getElementById("login_psw").value = '';
-			}
-			function remember()
-			{
-				SetCookie(document.getElementById("login_user").value,document.getElementById("login_psw").value);
-			}
-				 var PassWord=GetCookie(document.getElementById("login_user").value);
-				 if(PassWord!=null)
-						document.getElementById("login_psw").value= PassWord;
-		
-			
 			
 			window.alert = function(str) 
 			{ 
@@ -437,6 +386,61 @@
 					}
 					init();
 				})();
+				
+				
+			function GetCookie (name) 
+			{ 
+				var arg = name + "="; 
+				var alen = arg.length; 
+				var clen = window.document.cookie.length; 
+				var i = 0; 
+				while (i < clen) 
+				{ 
+					var j = i + alen; 
+					if (window.document.cookie.substring(i, j) == arg) return getCookieVal (j); 
+					i = window.document.cookie.indexOf(" ", i) + 1; 
+					if (i == 0)
+						break; 
+				} 
+				return null;
+			}
+			function getCookieVal (offset)
+			{ 
+				var endstr = window.document.cookie.indexOf (";", offset); 
+				if (endstr == -1)
+					endstr = window.document.cookie.length; 
+				return unescape(window.document.cookie.substring(offset, endstr));
+			}
+			function SetCookie (name, value)
+			{ 
+				var exp = new Date(); 
+				exp.setTime(exp.getTime() + (30*24*60*60*1000));
+				window.document.cookie = name + "=" + escape (value) + "; expires=" + exp.toGMTString()+";path=/";
+			}
+			function DeleteCookie (name)
+			{ 
+				var exp = new Date(); 
+				exp.setTime (exp.getTime() - 100); 
+				var cval = GetCookie (name); 
+				window.document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString()+";path=/";
+			}
+			
+			function DelCookie()
+			{
+				DeleteCookie(document.getElementById("login_user").value);
+				document.getElementById("login_psw").value = '';
+			}
+			function remember()
+			{
+				SetCookie(document.getElementById("login_user").value,document.getElementById("login_psw").value);
+			}
+			document.getElementById("login_user").value = device_id;
+				 var PassWord=GetCookie(document.getElementById("login_user").value);
+				 if(PassWord!=null)
+				 {
+						document.getElementById("login_psw").value = PassWord;
+						document.getElementById("login_user").value = device_id;
+					}
 				
 		</script>		
 	</body>
