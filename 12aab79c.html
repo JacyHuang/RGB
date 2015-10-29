@@ -51,7 +51,7 @@
 						<div class="content">							
 							<div style="margin-bottom: 30px;	height: 35px;	line-height: 35px;" >
 								<img style="width: 28px;"  src="./image/account-tx.svg"/>
-								<input class="styled" type="text" onblur="showpassword()" maxlength="20" style="border:0;border-bottom: 1px solid #3DB481;background:transparent;color:#3DB481;" data-theme="f" data-role="none" placeholder="请输入用户名" id="login_user">
+								<input class="styled" type="text" onblur="showpassword()" style="border:0;border-bottom: 1px solid #3DB481;background:transparent;color:#3DB481;" data-theme="f" data-role="none" placeholder="请输入用户名" id="login_user">
 							</div>
 							<div style="margin-bottom: 30px;	height: 35px;	line-height: 35px;">
 								<img style="width: 28px;"  src="./image/account-cd.svg"/>
@@ -337,7 +337,7 @@
 					{
 						LoadPage = 1;
 					}
-					else if(user == "guest")
+					else if(user == device_id)
 					{
 						LoadPage = 2;
 					}
