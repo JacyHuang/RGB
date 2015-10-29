@@ -55,14 +55,14 @@
             {
               text: '<b>Save</b>',
               type: 'button-positive',
-              onTap: function(e) {
+              onTap: function(e) {              	
+                	if($scope.data.alias == "admin")
+                	{
+                		$scope.data.alias = '';
+                	}
                 if (!$scope.data.alias) {
                   e.preventDefault();
                 } else {
-                	if($scope.data.alias == "admin")
-                	{
-                		return;
-                	}
                   $http.post(
                     'http://api.easylink.io/v1/device/modify',
                     {
