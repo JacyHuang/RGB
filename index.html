@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
   <title>FogCloud</title>
-  <link href="//api.easylink.io/bower_components/ionic/css/ionic.min.css" rel="stylesheet">
-  <script src="//api.easylink.io/bower_components/ionic/js/ionic.bundle.min.js"></script>
+  <link href="http://api.easylink.io/bower_components/ionic/css/ionic.min.css" rel="stylesheet">
+  <script src="http://api.easylink.io/bower_components/ionic/js/ionic.bundle.min.js"></script>
   <script type="text/javascript">
     function getParameterByName(name) {
       var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -113,6 +113,19 @@ $scope.reloadPage = function() {
 });
 
 </script>
+
+	<style>
+	    .size-12 { font-size: 12px; }
+    .size-14 { font-size: 14px; }
+    .size-16 { font-size: 16px; }
+    .size-18 { font-size: 18px; }
+    .size-21 { font-size: 21px; }
+    .size-24 { font-size: 24px; }
+    .size-32 { font-size: 32px; }
+    .size-48 { font-size: 48px; }
+    .size-64 { font-size: 64px; }
+    .size-96 { font-size: 96px; }
+   </style>
 </head>
 <body ng-controller="MyCtrl">
   <ion-header-bar class="bar-positive">
@@ -126,7 +139,8 @@ $scope.reloadPage = function() {
 <ion-item ng-repeat="item in items" 
 item="item"
 href="{{ item.product_id }}.html?device_id={{ item.device_id }}&access_token={{ access_token }}&alias={{ item.alias }}" class="item-remove-animate">
-<i ng-if="item.state==1" class="icon ion-record positive" ></i><i ng-if="item.state==0" class="icon ion-record assertive" ></i> {{ item.alias }}<br>
+<i ng-if="item.state==1" class="icon ion-record positive size-32" ></i>
+<i ng-if="item.state==0" class="icon ion-record assertive size-32" ></i> {{ item.alias }}<br>
 
 <ion-option-button class="button-assertive"
 ng-click="showPopup(item)">

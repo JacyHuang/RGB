@@ -136,10 +136,10 @@
 						</ion-refresher>
 						<ion-list>	
 							<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">					
-								<span class="size-32">
-									<i ng-if="item.light_state==1" class="icon ion-ios-lightbulb-outline positive"></i>
-									<i ng-if="item.light_state==0" class="icon ion-ios-lightbulb-outline dark"></i>
-								</span>
+								
+									<i ng-if="item.light_state==1" class="icon ion-ios-lightbulb-outline positive size-32"></i>
+									<i ng-if="item.light_state==0" class="icon ion-ios-lightbulb-outline dark size-32"></i>
+								
 									<i ng-if="item.light_state==1" class="positive">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
 									<i ng-if="item.light_state==0" class="dark">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
 								
