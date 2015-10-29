@@ -52,8 +52,8 @@
 					<img class="pi"  src="./image/account-cd.svg"/>
 					<input class="styled" type="password" data-theme="f" data-role="none" placeholder="请输入六位密码" id="login_psw">
 				</div>
-				<div class="subbutton" id="loginbtn">
-					<span><a href="#">登录1</a></span>
+				<div class="subbutton" onclick="changpswtag('test')">
+					<span><a href="#">登录</a></span>
 				</div>
 				<div class="forgotpsw">
 					<a href="#registerpage" data-transition="none">忘记密码？</a>
@@ -106,6 +106,39 @@
 								配对
 								</ion-option-button>
 								<ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+							</ion-item>
+						</ion-list>
+					</ion-content>
+		</div>
+		
+			<div class="register" data-role="page" data-theme="f" id="test">
+			<ion-header-bar class="bar-positive">
+							<h1 class="title">云灯控制</h1>
+					</ion-header-bar>
+					<ion-content>
+						
+						<ion-refresher on-refresh="doRefresh()"
+						               pulling-text="Pull to refresh..." 
+						               refreshing-text="Refreshing!"
+						               refreshing-icon="ion-loading-b">
+							
+						</ion-refresher>
+						<ion-list can-swipe="listCanSwipe"  show-delete="data.showDelete" show-reorder="data.showReorder">	
+							<ion-item ng-repeat="item in items" ng-click="CtrlDevice(item)">					
+								<span class="size-32">
+									<i ng-if="item.light_state==1" class="icon ion-ios-lightbulb-outline positive"></i>
+									<i ng-if="item.light_state==0" class="icon ion-ios-lightbulb-outline dark"></i>
+								</span>
+									<i ng-if="item.light_state==1" class="positive">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
+									<i ng-if="item.light_state==0" class="dark">&nbsp&nbsp&nbsp{{item.light_alias}}</i>
+								
+								<ion-option-button class="button-dark" ng-click="showPopup_Edit(item)">
+								编辑
+								</ion-option-button>
+								<ion-option-button class="button-assertive" ng-click="MatchDevice(item)">
+								配对
+								</ion-option-button>
+
 							</ion-item>
 						</ion-list>
 					</ion-content>
