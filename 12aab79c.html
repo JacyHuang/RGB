@@ -336,11 +336,17 @@
 					var user = document.getElementById("login_user").value;
 					if(user == "admin")
 					{
-						LoadPage = 1;
+						if(document.getElementById("login_psw").value == "123456")
+						{
+							LoadPage = 1;
+						}
 					}
-					else if(user == device_id)
+					else if(user == device_alias)
 					{
-						LoadPage = 2;
+						if(document.getElementById("login_psw").value == "654321")
+						{
+							LoadPage = 2;
+						}
 					}
 					else
 					{

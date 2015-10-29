@@ -59,6 +59,10 @@
                 if (!$scope.data.alias) {
                   e.preventDefault();
                 } else {
+                	if($scope.data.alias == "admin")
+                	{
+                		return;
+                	}
                   $http.post(
                     'http://api.easylink.io/v1/device/modify',
                     {
