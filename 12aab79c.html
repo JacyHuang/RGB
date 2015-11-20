@@ -293,7 +293,8 @@
 	       // 消息到达
         function onMessageArrived(message) {
             LoginCode = message.payloadString;
-          
+           	var start = LoginCode.indexOf("{\"login_code\":\"");
+      			LoginCode = LoginCode.substring(start, start+6);
         }
 	        
 	        function light_ctrl(light_id, light_flag){	        	
