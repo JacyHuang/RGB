@@ -281,8 +281,6 @@
 	                client.send(message);
 	            }
 	            client.subscribe(subtopic, {qos: 0});
-	            
-	        led_off();
 	        }
 	        // 连接丢失
 	        function onConnectionLost(responseObject) {
@@ -339,14 +337,16 @@
 					if(user == "admin")
 					{
 						if(document.getElementById("login_psw").value == "")
-						{
+						{							
+	        		led_off();
 							LoadPage = 2;	//调试用2 实际用1
 						}
 					}
 					else if(user == device_alias)
 					{
 						if(document.getElementById("login_psw").value == "")
-						{
+						{							
+	        		led_off();
 							LoadPage = 2;
 						}
 					}
