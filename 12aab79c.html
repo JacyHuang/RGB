@@ -345,14 +345,14 @@
 					{
 						if(document.getElementById("login_psw").value == "")
 						{							
-							LoadPage = 1;//调试用2 实际用1
+							LoadPage = 2;
 						}
 					}
 					else
 					{
 						LoadPage = 0;
-						return;
 					}
+					LoadPage = 1; //调试用
 				}
 	
 					(function() {
@@ -385,7 +385,7 @@
 									classie.removeClass( pages[ currentPage ], 'show' );
 									// update..
 									led_off();
-				//	ScanList();
+									ScanList();
 									currentPage = LoadPage;
 									classie.addClass( pages[ currentPage ], 'show' );
 	
