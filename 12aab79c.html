@@ -225,6 +225,7 @@
 	    }
 	    
 	    var LoadPage = 0;
+	    var LoginCode;
 	    
 	    // 得到设备ID
 	    var device_id = getParameterByName('device_id');
@@ -289,11 +290,9 @@
 	            }
 	        }
 	        
-	      var msgjson;
 	       // 消息到达
         function onMessageArrived(message) {
-            msgjson = $.parseJSON(message.payloadString);
-           // var tempval = msgjson.get_code;
+            LoginCode = message.payloadString;
             
             led_off();
         }
@@ -388,6 +387,7 @@
 									alert("用户名或密码错误!");	
 									return;
 								}
+								alert(LoginCode);
 								if(LoadPage == 2)
 								{
 									remember();
