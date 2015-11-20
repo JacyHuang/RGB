@@ -248,7 +248,6 @@
 	        // access_token是公众号的全局唯一票据，公众号调用各接口时都需使用access_token。
 	        // 正常情况下access_token有效期为7200秒，重复获取将导致上次获取的access_token失效
 	        var access_token = getParameterByName('access_token');
-	        alert("adf");
 	
 	        document.getElementById('device_id').innerHTML = device_id;
 	
@@ -295,7 +294,7 @@
         function onMessageArrived(message) {
 //            msgjson = $.parseJSON(message.payloadString);
 //            var tempval = msgjson.get_code;
-            
+            get_code();
             
         }
 	        
