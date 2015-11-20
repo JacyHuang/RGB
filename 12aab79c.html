@@ -268,7 +268,6 @@
 	        client.connect({onSuccess:onConnect});
 	      }
 	
-	                message = new Paho.MQTT.Message(commond);
 	        // 连接成功
 	        function onConnect() {
 	            var subtopic = device_id+'/out/#';
@@ -277,6 +276,7 @@
 	            // topic：通道
 	            // commond：指令
 	            client.publish = function(topic, commond) {
+	                message = new Paho.MQTT.Message(commond);
 	                message.destinationName = topic;
 	                client.send(message);
 	            }
