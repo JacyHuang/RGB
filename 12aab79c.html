@@ -338,22 +338,25 @@
 					{
 						if(document.getElementById("login_psw").value == "")
 						{							
-	        		led_off();
-							LoadPage = 2;	//调试用2 实际用1
+							LoadPage = 1;	//调试用2 实际用1
 						}
 					}
 					else if(user == device_alias)
 					{
 						if(document.getElementById("login_psw").value == "")
 						{							
-	        		led_off();
-							LoadPage = 2;
+							LoadPage = 1;
 						}
 					}
 					else
 					{
 						LoadPage = 0;
+						return;
 					}
+					led_off();
+					light_list.push({'light_id':1, 'light_alias':"红色", 'light_state':0});
+			  	light_list.push({'light_id':2, 'light_alias':"绿色", 'light_state':0});
+			  	light_list.push({'light_id':3, 'light_alias':"蓝色", 'light_state':0});
 				}
 	
 					(function() {
