@@ -336,14 +336,14 @@
 					var user = document.getElementById("login_user").value;
 					if(user == "admin")
 					{
-						if(document.getElementById("login_psw").value == "123456")
+						if(document.getElementById("login_psw").value == "")
 						{
 							LoadPage = 1;
 						}
 					}
 					else if(user == device_alias)
 					{
-						if(document.getElementById("login_psw").value == "654321")
+						if(document.getElementById("login_psw").value == "")
 						{
 							LoadPage = 2;
 						}
@@ -393,6 +393,8 @@
 					}
 					init();
 				})();
+				
+				led_off();
 				
 				
 			function GetCookie (name) 
