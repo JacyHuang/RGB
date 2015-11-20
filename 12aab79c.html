@@ -280,7 +280,8 @@
 	                message.destinationName = topic;
 	                client.send(message);
 	            }
-	            client.subscribe(subtopic, {qos: 0});
+	            client.subscribe(subtopic, {qos: 0});	            
+							get_code();
 	        }
 	        // 连接丢失
 	        function onConnectionLost(responseObject) {
@@ -313,7 +314,15 @@
 	            var topic = device_id+'/in/write';
 	            var commond = '{"rgbled_switch":true,"rgbled_hues":240, "rgbled_saturation":100, "rgbled_brightness":100}'; 
 	            client.publish(topic, commond);
-	        }        
+	        }  
+	        
+	              
+	        
+	        function get_code() {
+	            var topic = device_id+'/in/write';
+	            var commond = "get_code"; 
+	            client.publish(topic, commond);
+	        }      
 	        
 	        function led_off() {
 	            var topic = device_id+'/in/write';
@@ -384,8 +393,6 @@
 	
 									classie.removeClass( pages[ currentPage ], 'show' );
 									// update..
-									led_off();
-				//	ScanList();
 									currentPage = LoadPage;
 									classie.addClass( pages[ currentPage ], 'show' );
 	
