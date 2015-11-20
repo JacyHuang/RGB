@@ -281,7 +281,6 @@
 	                client.send(message);
 	            }
 	            client.subscribe(subtopic, {qos: 0});
-	            ScanList();
 	        }
 	        // 连接丢失
 	        function onConnectionLost(responseObject) {
@@ -394,6 +393,8 @@
 						} );	
 					}
 					init();
+					led_on();
+					ScanList();
 				})();
 				
 				
