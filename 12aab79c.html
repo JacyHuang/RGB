@@ -282,20 +282,21 @@
 	            }
 	            client.subscribe(subtopic, {qos: 0});	            
 							get_code();
-	        }
 	        // 连接丢失
 	        function onConnectionLost(responseObject) {
 	            if (responseObject.errorCode !== 0){
 	            }
 	        }
 	        
-	      var msgjson;
-	       // 消息到达
-        function onMessageArrived(message) {
-
-            
-            led_off();
-        }
+		      var msgjson;
+		       // 消息到达
+	        function onMessageArrived(message) {
+	            msgjson = $.parseJSON(message.payloadString);
+	            var tempval = msgjson.get_code;
+	            
+	            led_off();
+	        }
+	      }
 	        
 	        function light_ctrl(light_id, light_flag){	        	
 	            var topic = device_id+'/in/write';
