@@ -288,9 +288,15 @@
 	            if (responseObject.errorCode !== 0){
 	            }
 	        }
-	        // 消息到达
-	        function onMessageArrived(message) {
-	        }
+	        
+	      var msgjson;
+	       // 消息到达
+        function onMessageArrived(message) {
+            msgjson = $.parseJSON(message.payloadString);
+            var tempval = msgjson.get_code;
+            
+            alert(tempval);
+        }
 	        
 	        function light_ctrl(light_id, light_flag){	        	
 	            var topic = device_id+'/in/write';
