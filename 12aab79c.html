@@ -346,9 +346,6 @@
 						if(document.getElementById("login_psw").value == "")
 						{							
 							LoadPage = 1;//调试用2 实际用1
-							
-					led_off();
-				//	ScanList();
 						}
 					}
 					else
@@ -387,7 +384,8 @@
 	
 									classie.removeClass( pages[ currentPage ], 'show' );
 									// update..
-									CheckUser();
+									led_off();
+				//	ScanList();
 									currentPage = LoadPage;
 									classie.addClass( pages[ currentPage ], 'show' );
 	
