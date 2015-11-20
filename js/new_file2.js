@@ -2,6 +2,8 @@
   var light_state=1;
   var light_alias="红色";
   var light_id=2;
+  
+  led_off();
 
   	//light_list.push({'light_id':light_id, 'light_alias':light_alias, 'light_state':light_state});
   	light_list.push({'light_id':1, 'light_alias':"红色", 'light_state':0});
