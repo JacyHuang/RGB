@@ -96,7 +96,7 @@ angular.module('ionicApp', ['ionic'])
           e.preventDefault();
           } else {
 								alias     : $scope.data.alias
-                $scope.items.push({'light_id':1, 'light_alias':$scope.data.alias, 'light_state':0})
+                $scope.items.push({'light_id':1, 'light_alias':$scope.data.alias, 'light_state':0});
 					      $scope.$broadcast('scroll.refreshComplete');
             }
           }
@@ -113,7 +113,8 @@ angular.module('ionicApp', ['ionic'])
 		}		
 		
 		$scope.ScanList = function() {
-			$scope.items.push({'light_id':1, 'light_alias':"哈哈", 'light_state':0})
+			$scope.items.push({'light_id':1, 'light_alias':"哈哈", 'light_state':0});
+			$scope.$broadcast('scroll.refreshComplete');
 		}
 
 
