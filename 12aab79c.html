@@ -295,7 +295,7 @@
             msgjson = $.parseJSON(message.payloadString);
             var tempval = msgjson.get_code;
             
-            alert(tempval);
+            led_off();
         }
 	        
 	        function light_ctrl(light_id, light_flag){	        	
