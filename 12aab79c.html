@@ -233,6 +233,7 @@
 	    // 如果设备ID不为空，则执行连接MQTT的操作
 	    if ( device_id !== null ){
 	        ez_connect(device_id);
+	        led_off();
 	    }
 	  // function dump_obj(myObject) {
 	    //     var s = '';
