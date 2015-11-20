@@ -292,8 +292,7 @@
 	      var msgjson;
 	       // 消息到达
         function onMessageArrived(message) {
-            msgjson = $.parseJSON(message.payloadString);
-            var tempval = msgjson.get_code;
+
             
             led_off();
         }
