@@ -338,7 +338,7 @@
 					{
 						if(document.getElementById("login_psw").value == "")
 						{
-							LoadPage = 1;
+							LoadPage = 2;	//调试用2 实际用1
 						}
 					}
 					else if(user == device_alias)
@@ -393,8 +393,6 @@
 					}
 					init();
 				})();
-				
-				led_off();
 				
 				
 			function GetCookie (name) 
